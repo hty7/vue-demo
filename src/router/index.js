@@ -4,16 +4,22 @@ import {routerMode} from '@/config/env'
 
 Vue.use(Router)
 
-const helloWorld = r => require.ensure([], () => (require('@/view/home/HelloWorld')), 'helloWorld')
 const home = r => require.ensure([], () => (require('@/view/home/')), 'home')
+const location = r => require.ensure([], () => (require('@/view/location/')), 'location')
+const setting = r => require.ensure([], () => (require('@/view/setting/')), 'location')
 
 let routes = [{
   path: '/',
   component: home,
+  redirect: '/location',
   children: [
     {
-      path: 'index',
-      component: helloWorld
+      path: '/location',
+      component: location
+    },
+    {
+      path: '/setting',
+      component: setting
     }
   ]
 }]

@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire" dark>
+  <v-app id="inspire">
     <v-toolbar app fixed clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Application</v-toolbar-title>
@@ -42,6 +42,7 @@ export default {
     drawer: true,
     routers: [
       {path: 'location', router: true, title: '列表', icon: 'transfer_within_a_station', color: 'blue'},
+      {path: 'announcement', router: true, title: '公告', icon: 'transfer_within_a_station', color: 'blue'},
       {path: 'setting', router: true, title: '设置', icon: 'settings', color: 'orange'}
     ]
   }),

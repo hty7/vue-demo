@@ -6,7 +6,8 @@ Vue.use(Router)
 
 const home = r => require.ensure([], () => (require('@/view/home/')), 'home')
 const location = r => require.ensure([], () => (require('@/view/location/')), 'location')
-const setting = r => require.ensure([], () => (require('@/view/setting/')), 'location')
+const announcement = r => require.ensure([], () => (require('@/view/announcement/')), 'announcement')
+const setting = r => require.ensure([], () => (require('@/view/setting/')), 'setting')
 
 let routes = [{
   path: '/',
@@ -16,6 +17,10 @@ let routes = [{
     {
       path: '/location',
       component: location
+    },
+    {
+      path: '/announcement',
+      component: announcement
     },
     {
       path: '/setting',

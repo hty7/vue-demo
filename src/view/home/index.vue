@@ -41,7 +41,7 @@ export default {
   data: () => ({
     drawer: true,
     routers: [
-      {path: 'location', router: true, title: '位置查询', icon: 'transfer_within_a_station', color: 'blue'},
+      {path: 'location', router: true, title: '列表', icon: 'transfer_within_a_station', color: 'blue'},
       {path: 'setting', router: true, title: '设置', icon: 'settings', color: 'orange'}
     ]
   }),

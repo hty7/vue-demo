@@ -4,6 +4,7 @@ import {routerMode} from '@/config/env'
 
 Vue.use(Router)
 
+const login = r => require.ensure([], () => (require('@/view/login/login')), 'login')
 const home = r => require.ensure([], () => (require('@/view/home/')), 'home')
 const location = r => require.ensure([], () => (require('@/view/location/')), 'location')
 const announcement = r => require.ensure([], () => (require('@/view/announcement/')), 'announcement')
@@ -27,6 +28,9 @@ let routes = [{
       component: setting
     }
   ]
+}, {
+  path: '/login',
+  component: login
 }]
 
 const router = new Router({

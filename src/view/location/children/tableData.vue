@@ -28,18 +28,18 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" flat @click.native="close">Cancel</v-btn>
-          <v-btn color="blue darken-1" flat @click.native="save">Save</v-btn>
+          <v-btn color="blue darken-1" flat @click.native="close">取消</v-btn>
+          <v-btn color="blue darken-1" flat @click.native="save">保存</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
     <v-data-table :headers="headers" :items="items" hide-actions class="elevation-1">
       <template slot="items" slot-scope="props">
         <td>{{ props.item.name }}</td>
-        <td class="text-xs-right">{{ props.item.calories }}</td>
-        <td class="text-xs-right">{{ props.item.fat }}</td>
-        <td class="text-xs-right">{{ props.item.carbs }}</td>
-        <td class="text-xs-right">{{ props.item.protein }}</td>
+        <td>{{ props.item.calories }}</td>
+        <td>{{ props.item.fat }}</td>
+        <td>{{ props.item.carbs }}</td>
+        <td>{{ props.item.protein }}</td>
         <td class="justify-center layout px-0">
           <v-btn icon class="mx-0" @click="editItem(props.item)">
             <v-icon color="teal">edit</v-icon>
@@ -70,17 +70,12 @@ export default {
     page: 1,
     dialog: false,
     headers: [
-      {
-        text: '名称',
-        align: 'left',
-        sortable: false,
-        value: 'name'
-      },
-      { text: 'Calories', value: 'calories' },
-      { text: 'Fat (g)', value: 'fat' },
-      { text: 'Carbs (g)', value: 'carbs' },
-      { text: 'Protein (g)', value: 'protein' },
-      { text: 'Actions', value: 'name', sortable: false }
+      {text: '名称', align: 'center', sortable: false, value: 'name'},
+      { text: '数量', align: 'center', value: 'calories' },
+      { text: '均值', align: 'center', value: 'fat' },
+      { text: 'Carbs (g)', align: 'center', value: 'carbs' },
+      { text: 'Protein (g)', align: 'center', value: 'protein' },
+      { text: '操作', align: 'center', value: 'name', sortable: false }
     ],
     items: [],
     editedIndex: -1,

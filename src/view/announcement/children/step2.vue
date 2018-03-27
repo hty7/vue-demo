@@ -99,7 +99,6 @@
           <v-btn color="green darken-1" flat="flat" @click.native="submitData" v-show="!isLoading">确定</v-btn>
         </v-card-actions>
       </v-card>
-      </v-card>
     </v-dialog>
   </div>
 </template>

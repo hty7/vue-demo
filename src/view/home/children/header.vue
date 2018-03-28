@@ -30,7 +30,7 @@
               <v-list-tile-sub-title>Front-end development engineer</v-list-tile-sub-title>
             </v-list-tile-content>
             <v-list-tile-action>
-              <v-btn icon :class="fav ? 'red--text' : ''" @click="fav = !fav">
+              <v-btn icon :class="fav ? 'red--text' : ''" @click="setLove">
                 <v-icon>favorite</v-icon>
               </v-btn>
             </v-list-tile-action>
@@ -81,6 +81,14 @@ export default {
   methods: {
     drawer () {
       this.$store.commit('SET_CONTROLSOPTION', {drawer: !this.controlsOption.drawer})
+    },
+    setLove () {
+      this.fav = !this.fav
+      if (this.fav) {
+        this.setLocalStorage('user', {name: 'YJ', tel: '110'})
+      } else {
+        this.removeLocalStorage('user')
+      }
     },
     signOut () {
       this.menu = false

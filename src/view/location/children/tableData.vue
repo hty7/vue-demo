@@ -37,7 +37,7 @@
       <template slot="items" slot-scope="props">
         <td>{{ props.item.name }}</td>
         <td>{{ props.item.calories }}</td>
-        <td>{{ props.item.fat }}</td>
+        <td>{{ props.item.fat | toNumber}}</td>
         <td>{{ props.item.carbs }}</td>
         <td>{{ props.item.protein }}</td>
         <td class="justify-center layout px-0">
@@ -56,7 +56,7 @@
     <div class="text-xs-right">
       <v-pagination :length="3" v-model="page"></v-pagination>
     </div>
-    <div style="position: fixed;bottom: 50px;right: 20px;z-index: 999;">
+    <div style="position: fixed;bottom: 50px;right: 20px;z-index: 999;" v-stealth="true">
       <v-btn fab color="pink" @click="editItem(defaultItem)">
         <v-icon>add</v-icon>
       </v-btn>
@@ -117,7 +117,7 @@ export default {
         {
           name: 'Frozen Yogurt',
           calories: 159,
-          fat: 6.0,
+          fat: '6.0zzz',
           carbs: 24,
           protein: 4.0
         },

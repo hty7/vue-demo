@@ -56,6 +56,8 @@ export default {
         this.$router.push({path: '/'})
         this.$toast('登陆成功')
       } catch (err) {
+        this.$router.push({path: '/'})
+        this.$toast(err)
       }
     }
   }

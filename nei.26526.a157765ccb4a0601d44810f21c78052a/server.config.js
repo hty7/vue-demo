@@ -56,9 +56,9 @@ module.exports = {
     /* 项目的 key */
     projectKey: 'a157765ccb4a0601d44810f21c78052a',
     /* 同步模块mock数据路径 */
-    mockTpl: 'J:/myproject/vueDemo1/mock.data/template/',
+    mockTpl: 'J:/myproject/vue-demo/mock.data/template/',
     /* 异步接口mock数据路径 */
-    mockApi: 'J:/myproject/vueDemo1/mock.data/interface/',
+    mockApi: 'J:/myproject/vue-demo/mock.data/interface/',
     /* 是否修改代理的host */
     changeOrigin: true,
     /* 模板后缀 */

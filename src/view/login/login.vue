@@ -21,7 +21,7 @@
           </v-slide-y-transition>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn round color="primary" dark @click="login">登陆</v-btn>
+            <v-btn round color="primary" dark @click.native="login">登陆</v-btn>
             <v-btn flat round color="primary">注册</v-btn>
           </v-card-actions>
         </v-card>
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 export default {
   data: () => ({
     valid: false,
@@ -48,9 +49,14 @@ export default {
   computed: {
   },
   methods: {
-    login () {
-      this.$router.push({path: '/'})
-      this.$toast('登陆成功')
+    ...mapActions(['getCurrentUser']),
+    async login () {
+      try {
+        await this.getCurrentUser()
+        this.$router.push({path: '/'})
+        this.$toast('登陆成功')
+      } catch (err) {
+      }
     }
   }
 }

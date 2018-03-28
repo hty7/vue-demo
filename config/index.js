@@ -11,13 +11,14 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-        '/zhsq-web/': {
-        target: 'http://192.168.3.53:8090/zhsq-web',
-        changeOrigin:true,
+      // NEI-MOCK接口
+      '/api': {
+        target: 'http://localhost:8002',
+        changeOrigin: true,
         pathRewrite: {
-          '^/zhsq-web': ''
+          '^/api': ''
         }
-      }
+      },
     },
 
     // Various Dev Server settings

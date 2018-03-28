@@ -1,3 +1,5 @@
+import axios from 'axios'
 export const getCurrentUser = param => {
-  return this.axios.get(`/reg/user/get/${param}`, param)
+  console.log('dd2')
+  return axios.get('/user/getUserInfo', param)
 }

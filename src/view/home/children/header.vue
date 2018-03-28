@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   data: () => ({
     fav: true,
@@ -70,14 +71,16 @@ export default {
     hints: false
   }),
   watch: {
-    hints () {
-      this.$emit('toggerThemes')
+    hints (val) {
+      this.$store.commit('SET_CONTROLSOPTION', {hints: val})
     }
+  },
+  computed: {
+    ...mapGetters(['controlsOption'])
   },
   methods: {
     drawer () {
-      console.log('iii')
-      this.$emit('toggerDrawer')
+      this.$store.commit('SET_CONTROLSOPTION', {drawer: !this.controlsOption.drawer})
     },
     signOut () {
       this.menu = false

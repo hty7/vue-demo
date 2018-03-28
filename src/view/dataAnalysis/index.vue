@@ -1,10 +1,11 @@
 <template>
   <v-layout>
     <v-flex xs6 sm6>
-      <div ref="chart1" style="width: 100%;height: 500px;"></div>
+      <div ref="chart1" style="width: 100%;height: 600px;"></div>
     </v-flex>
     <v-flex xs6 sm6>
       <div ref="chart2" style="width: 100%;height: 300px;"></div>
+      <div ref="chart3" style="width: 100%;height: 300px;"></div>
     </v-flex>
   </v-layout>
 </template>
@@ -24,7 +25,13 @@ export default {
     this.$nextTick(() => {
       this.drawChart1()
       this.drawChart2()
+      this.drawChart3()
     })
+    window.addEventListener('resize', this.resizeFu, false)
+  },
+  beforeRouteLeave (to, from, next) {
+    window.removeEventListener('resize', this.resizeFu, false)
+    next()
   },
   methods: {
     drawChart1 () {
@@ -158,6 +165,49 @@ export default {
           }
         }]
       })
+    },
+    drawChart3 () {
+      this.chart3 = echarts.init(this.$refs.chart3, 'vintage')
+      let option3 = {
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'shadow'
+          }
+        },
+        xAxis: {
+          type: 'value',
+          silent: false,
+          splitLine: {
+            show: false
+          }
+        },
+        yAxis: {
+          type: 'category',
+          data: ['top1', 'top2', 'top3', 'top4', 'top5']
+        },
+        series: [{
+          name: 'testsonf',
+          type: 'bar',
+          data: [
+            {name: 'app1', value: 34},
+            {name: 'app2', value: 46},
+            {name: 'app3', value: 6},
+            {name: 'app4', value: 74},
+            {name: 'app5', value: 64}
+          ]
+        }],
+        animationEasing: 'elasticOut',
+        animationDelayUpdate: function (idx) {
+          return idx * 15
+        }
+      }
+      this.chart3.setOption(option3)
+    },
+    resizeFu (el) {
+      this.chart1.resize()
+      this.chart2.resize()
+      this.chart3.resize()
     }
   }
 }

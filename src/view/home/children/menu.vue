@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer clipped fixed v-model="drawer" app>
+  <v-navigation-drawer clipped fixed v-model="controlsOption.drawer" app>
     <v-list dense>
       <template v-for="(item, index) in routers">
         <v-list-group no-action :key="index" v-if="item.items">
@@ -34,21 +34,19 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
-  props: {
-    drawer: {
-      type: Boolean,
-      default: true
-    }
-  },
   data: () => ({
     routers: [
       {path: 'location', router: true, title: '列表', icon: 'transfer_within_a_station', color: 'blue'},
-      {title: '公告', icon: 'record_voice_over', color: 'orange', items: [{title: '新建公告', path: 'announcement', router: true}, {title: '公告列表', path: 'announList'}]},
+      {title: '公告', icon: 'record_voice_over', color: 'orange', items: [{title: '新建公告', path: 'announcement', router: true}, {title: '公告列表', path: 'announceList'}]},
       {path: 'analysis', router: true, title: '数据分析', icon: 'backup', color: 'indigo'},
       {path: 'setting', router: true, title: '设置', icon: 'settings', color: 'purple'}
     ]
   }),
+  computed: {
+    ...mapGetters(['controlsOption'])
+  },
   methods: {
   }
 }

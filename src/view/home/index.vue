@@ -1,7 +1,7 @@
 <template>
-  <v-app id="inspire" :dark="hints">
-    <Vheader @toggerThemes="hints = !hints" @toggerDrawer="drawer = !drawer"></Vheader>
-    <Vmenu :drawer="drawer"></Vmenu>
+  <v-app id="inspire" :dark="controlsOption.hints">
+    <Vheader></Vheader>
+    <Vmenu></Vmenu>
     <v-content>
       <v-container fluid>
         <v-fade-transition mode="out-in">
@@ -13,16 +13,17 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 import Vheader from './children/header'
 import Vmenu from './children/menu'
 export default {
   components: {
     Vheader, Vmenu
   },
-  data: () => ({
-    hints: false,
-    drawer: true
-  }),
+  data: () => ({}),
+  computed: {
+    ...mapGetters(['controlsOption'])
+  },
   methods: {
   }
 }

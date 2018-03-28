@@ -8,6 +8,7 @@ const login = r => require.ensure([], () => (require('@/view/login/login')), 'lo
 const home = r => require.ensure([], () => (require('@/view/home/')), 'home')
 const location = r => require.ensure([], () => (require('@/view/location/')), 'location')
 const announcement = r => require.ensure([], () => (require('@/view/announcement/')), 'announcement')
+const announceList = r => require.ensure([], () => (require('@/view/announceList/')), 'announceList')
 const dataAnalysis = r => require.ensure([], () => (require('@/view/dataAnalysis/')), 'dataAnalysis')
 const setting = r => require.ensure([], () => (require('@/view/setting/')), 'setting')
 
@@ -23,6 +24,10 @@ let routes = [{
     {
       path: '/announcement',
       component: announcement
+    },
+    {
+      path: '/announceList',
+      component: announceList
     },
     {
       path: '/analysis',

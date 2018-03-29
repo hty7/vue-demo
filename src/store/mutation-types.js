@@ -1,1 +1,1 @@
-mutation-types.js
+export const GET_CURRENTDATA = 'GET_CURRENTDATA'

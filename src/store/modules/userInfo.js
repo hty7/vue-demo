@@ -1,4 +1,5 @@
 import {getCurrentUser} from '@/service/modules/userInfo'
+import * as types from '../mutation-types'
 const state = {
   userInfo: null // 用户信息
 }
@@ -10,12 +11,13 @@ const getters = {
 const actions = {
   async getCurrentUser ({commit}, params) {
     let data = await getCurrentUser(params)
-    commit('GET_CURRENTDATA', data)
+    commit(types.GET_CURRENTDATA, data)
+    return data
   }
 }
 
 const mutations = {
-  GET_CURRENTDATA (state, data) {
+  [types.GET_CURRENTDATA] (state, data) {
     state.userInfo = data
   }
 }

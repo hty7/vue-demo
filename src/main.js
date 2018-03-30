@@ -2,13 +2,12 @@ import App from './App'
 import axios from './service/'
 import router from './router'
 import store from './store/'
-import { sync } from 'vuex-router-sync'
+// import { sync } from 'vuex-router-sync'
 import Toast from './plugins/toast/toast'
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import * as directives from './directives'
 import * as filters from './filters'
-// import * as dict from './utils/dict'
 import * as methods from './utils/utils'
 import 'vuetify/dist/vuetify.min.css'
 import './plugins/toast/toast.css'
@@ -29,7 +28,7 @@ Object.keys(filters).forEach(k => Vue.filter(k, filters[k]))
 Object.keys(methods).forEach(k => { Vue.prototype[k] = methods[k] })
 
 // 动态路由
-sync(store, router)
+// sync(store, router)
 
 /* eslint-disable no-new */
 new Vue({

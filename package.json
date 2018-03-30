@@ -18,6 +18,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "echarts": "^4.0.4",
+    "esri-loader": "^2.2.0",
     "node-sass": "^4.7.2",
     "vue": "^2.5.2",
     "vue-axios": "^2.0.2",

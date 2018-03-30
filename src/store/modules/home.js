@@ -1,3 +1,4 @@
+import * as types from '../mutation-types'
 const state = {
   // 框架配置
   controlsOption: {
@@ -14,7 +15,7 @@ const actions = {
 }
 
 const mutations = {
-  SET_CONTROLSOPTION (state, data) {
+  [types.SET_CONTROLSOPTION] (state, data) {
     Object.assign(state.controlsOption, data)
   }
 }

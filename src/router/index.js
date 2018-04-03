@@ -8,9 +8,10 @@ const login = r => require.ensure([], () => (require('@/view/login/login')), 'lo
 const home = r => require.ensure([], () => (require('@/view/home/')), 'home')
 const location = r => require.ensure([], () => (require('@/view/location/')), 'location')
 const announcement = r => require.ensure([], () => (require('@/view/announcement/')), 'announcement')
-const announceList = r => require.ensure([], () => (require('@/view/announceList/')), 'announceList')
-const trafficAnalysis = r => require.ensure([], () => (require('@/view/dataAnalysis/trafficAnalysis/')), 'trafficAnalysis')
-const flowAnalysis = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/')), 'flowAnalysis')
+const announceList = r => require.ensure([], () => (require('@/view/announceList/')), 'announcement')
+const trafficAnalysis = r => require.ensure([], () => (require('@/view/dataAnalysis/trafficAnalysis/')), 'analysis')
+const flowAnalysis = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/')), 'analysis')
+const resource = r => require.ensure([], () => (require('@/view/resource/')), 'resource')
 const setting = r => require.ensure([], () => (require('@/view/setting/')), 'setting')
 
 let routes = [{
@@ -37,6 +38,10 @@ let routes = [{
     {
       path: '/flowAnalysis',
       component: flowAnalysis
+    },
+    {
+      path: '/resource',
+      component: resource
     },
     {
       path: '/setting',

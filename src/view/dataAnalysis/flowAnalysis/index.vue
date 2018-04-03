@@ -34,6 +34,7 @@ export default {
   },
   methods: {
     createMap (init) {
+      console.log(esriLoader)
       esriLoader.loadModules([
         'esri/Map',
         'esri/views/SceneView'

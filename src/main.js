@@ -6,6 +6,7 @@ import store from './store/'
 import Toast from './plugins/toast/toast'
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+import VueLazyLoad from 'vue-lazyload'
 import * as directives from './directives'
 import * as filters from './filters'
 import * as methods from './utils/utils'
@@ -18,6 +19,12 @@ Vue.config.productionTip = false
 // 注册插件
 Vue.use(Vuetify)
 Vue.use(Toast)
+Vue.use(VueLazyLoad, {
+  preLoad: 1.3,
+  error: 'static/images/404.png',
+  loading: 'static/images/loading-spin.svg',
+  attempt: 1
+})
 
 // 注册全局组件
 Vue.component('section-content', SectionContent)

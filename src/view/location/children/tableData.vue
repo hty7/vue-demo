@@ -35,19 +35,21 @@
     </v-dialog>
     <v-data-table :headers="headers" :items="items" hide-actions class="elevation-1">
       <template slot="items" slot-scope="props">
-        <td>{{ props.item.name }}</td>
-        <td>{{ props.item.calories }}</td>
-        <td>{{ props.item.fat | toNumber}}</td>
-        <td>{{ props.item.carbs }}</td>
-        <td>{{ props.item.protein }}</td>
-        <td class="justify-center layout px-0">
-          <v-btn icon class="mx-0" @click="editItem(props.item)">
-            <v-icon color="teal">edit</v-icon>
-          </v-btn>
-          <v-btn icon class="mx-0" @click="deleteItem(props.item)">
-            <v-icon color="pink">delete</v-icon>
-          </v-btn>
-        </td>
+        <tr @click="showUserInfo(props)">
+          <td>{{ props.item.name }}</td>
+          <td>{{ props.item.calories }}</td>
+          <td>{{ props.item.fat | toNumber}}</td>
+          <td>{{ props.item.carbs }}</td>
+          <td>{{ props.item.protein }}</td>
+          <td class="justify-center layout px-0">
+            <v-btn icon class="mx-0" @click="editItem(props.item)">
+              <v-icon color="teal">edit</v-icon>
+            </v-btn>
+            <v-btn icon class="mx-0" @click="deleteItem(props.item)">
+              <v-icon color="pink">delete</v-icon>
+            </v-btn>
+          </td>
+        </tr>
       </template>
       <template slot="no-data">
         <v-btn color="primary" @click="initialize">Reset</v-btn>
@@ -143,6 +145,10 @@ export default {
           protein: 4.3
         }
       ]
+    },
+
+    showUserInfo (val) {
+      console.log('ddd', val)
     },
 
     editItem (item) {

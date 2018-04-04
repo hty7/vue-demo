@@ -34,14 +34,17 @@
 </template>
 
 <script>
-import {routers} from '@/utils/dict'
 import {mapGetters} from 'vuex'
 export default {
   data: () => ({
-    routers: routers
   }),
   computed: {
-    ...mapGetters(['controlsOption'])
+    ...mapGetters(['controlsOption']),
+    routers () {
+      return this.$t('routers')
+    }
+  },
+  created () {
   },
   methods: {
   }

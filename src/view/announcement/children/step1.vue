@@ -10,15 +10,15 @@
         </v-card-title>
         <v-card-text>
           <v-form v-model="valid" ref="form" lazy-validation>
-            <v-text-field label="姓名" v-model="params.name" :rules="nameRules" :counter="10" required></v-text-field>
-            <v-text-field label="电子邮件" v-model="params.email" :rules="emailRules" required></v-text-field>
-            <v-select label="职业" v-model="params.career" :items="items" :rules="[v => !!v || 'Item is required']" required></v-select>
+            <v-text-field :label="$t('message.name')" v-model="params.name" :rules="nameRules" :counter="10" required></v-text-field>
+            <v-text-field :label="$t('message.address')" v-model="params.email" :rules="emailRules" required></v-text-field>
+            <v-select :label="$t('message.career')" v-model="params.career" :items="items" :rules="[v => !!v || 'Item is required']" required></v-select>
             <v-checkbox label="是否同意?" v-model="checkbox" :rules="[v => !!v || '提交必须点击同意!']" required></v-checkbox>
           </v-form>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn flat color="blue" @click="submit" :disabled="!valid">提交</v-btn>
+          <v-btn flat color="blue" @click="submit" :disabled="!valid">{{$t('buttom.submit')}}</v-btn>
           <v-btn icon>
             <v-icon color="red">favorite</v-icon>
           </v-btn>

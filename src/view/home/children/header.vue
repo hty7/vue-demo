@@ -10,7 +10,7 @@
       </v-avatar>
     </v-badge>
     <v-menu :close-on-content-click="false" :nudge-width="200" v-model="menu">
-      <v-btn flat small slot="activator">ADMIN</v-btn>
+      <v-btn flat small slot="activator">{{$t('optionMessage.admin')}}</v-btn>
       <v-card>
         <v-expansion-panel>
           <v-expansion-panel-content hide-actions>
@@ -42,19 +42,34 @@
             <v-list-tile-action>
               <v-switch v-model="message" color="purple"></v-switch>
             </v-list-tile-action>
-            <v-list-tile-title>接受推送</v-list-tile-title>
+            <v-list-tile-title>{{$t('optionMessage.pushButton')}}</v-list-tile-title>
           </v-list-tile>
           <v-list-tile>
             <v-list-tile-action>
               <v-switch v-model="hints" color="purple"></v-switch>
             </v-list-tile-action>
-            <v-list-tile-title>切换皮肤 ({{hints?'黑暗森林':'象牙白'}})</v-list-tile-title>
+            <v-list-tile-title>{{$t('optionMessage.hints')}} ({{hints?$t('optionMessage.skin1'):$t('optionMessage.skin2')}})</v-list-tile-title>
+          </v-list-tile>
+          <v-list-tile>
+            {{$t('optionMessage.lang')}}：
+            <v-btn-toggle v-model="icon">
+              <v-btn flat value="zhCHS">
+                <span>中文</span>
+                <v-icon>format_align_left</v-icon>
+              </v-btn>
+              <v-btn flat value="en">
+                <span>English</span>
+                <v-icon>
+                  format_color_text
+                </v-icon>
+              </v-btn>
+            </v-btn-toggle>
           </v-list-tile>
         </v-list>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn flat @click="menu = false">取消</v-btn>
-          <v-btn color="primary" flat @click="signOut">退出登陆</v-btn>
+          <v-btn flat @click="menu = false">{{$t('buttom.cancel')}}</v-btn>
+          <v-btn color="primary" flat @click="signOut">{{$t('buttom.signOut')}}</v-btn>
         </v-card-actions>
       </v-card>
     </v-menu>
@@ -65,6 +80,7 @@
 import {mapGetters} from 'vuex'
 export default {
   data: () => ({
+    icon: 'zhCHS',
     fav: true,
     menu: false,
     message: true,
@@ -73,6 +89,19 @@ export default {
   watch: {
     hints (val) {
       this.$store.commit('SET_CONTROLSOPTION', {hints: val})
+    },
+    icon (val) {
+      this.$i18n.locale = val
+      this.setLocalStorage('PLAY_LANG', val)
+    }
+  },
+  created () {
+    let lang = this.getLocalStorage('PLAY_LANG')
+    if (lang) {
+      this.icon = lang
+    } else {
+      this.setLocalStorage('PLAY_LANG', 'zhCHS')
+      this.icon = 'zhCHS'
     }
   },
   computed: {

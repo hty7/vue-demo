@@ -28,8 +28,8 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" flat @click.native="close">取消</v-btn>
-          <v-btn color="blue darken-1" flat @click.native="save">保存</v-btn>
+          <v-btn color="blue darken-1" flat @click.native="close">{{$t('buttom.cancel')}}</v-btn>
+          <v-btn color="blue darken-1" flat @click.native="save">{{$t('buttom.save')}}</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

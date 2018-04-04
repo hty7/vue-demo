@@ -21,8 +21,8 @@
           </v-slide-y-transition>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn round color="primary" dark @click.native="login">登陆</v-btn>
-            <v-btn flat round color="primary">注册</v-btn>
+            <v-btn round color="primary" dark @click.native="login">{{$t('buttom.login')}}</v-btn>
+            <v-btn flat round color="primary">{{$t('buttom.registered')}}</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>

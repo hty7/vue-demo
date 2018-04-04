@@ -15,9 +15,9 @@ import 'vuetify/dist/vuetify.min.css'
 import './plugins/toast/toast.css'
 import SectionContent from '@/components/SectionContent'
 /* 平台国际语言静态字典 */
-import LangEn from '../static/lang/en'
-import LangZhCHS from '../static/lang/zhCHS'
-import LangZhCHT from '../static/lang/zhCHT'
+import LangEn from './lang/en'
+import LangZhCHS from './lang/zhCHS'
+import LangZhCHT from './lang/zhCHT'
 
 Vue.config.productionTip = false
 
@@ -34,7 +34,7 @@ Vue.use(VueI18n)
 
 // 设置语言项
 const i18n = new VueI18n({
-  locale: 'en',
+  locale: 'zhCHS',
   messages: {
     'en': LangEn,
     'zhCHS': LangZhCHS,

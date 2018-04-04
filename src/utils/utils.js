@@ -24,3 +24,17 @@ export const removeLocalStorage = name => {
   if (!name) return
   window.localStorage.removeItem(name)
 }
+
+/**
+ *  获取cookie
+ */
+export const getCookie = (name, defaultValue) => {
+  let arr = null
+  let reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)')
+  arr = document.cookie.match(reg)
+  if (arr) {
+    return unescape(arr[2])
+  } else {
+    return defaultValue
+  }
+}

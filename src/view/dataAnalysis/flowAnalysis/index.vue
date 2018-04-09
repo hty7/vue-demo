@@ -1,5 +1,5 @@
 <template>
-  <div id="chartMap" ref="chartMap" style="width: 100%;height: 600px;"></div>
+  <div id="chartMap" ref="chartMap" style="width: 100%;height: 600px;" v-loading="loading"></div>
 </template>
 
 <script>
@@ -8,6 +8,7 @@ export default {
   components: {
   },
   data: () => ({
+    loading: false
   }),
   computed: {
   },
@@ -34,11 +35,12 @@ export default {
   },
   methods: {
     createMap (init) {
-      console.log(esriLoader)
+      this.loading = false
       esriLoader.loadModules([
         'esri/Map',
         'esri/views/SceneView'
       ]).then(([Map, SceneView]) => {
+        this.loading = true
         let map = new Map({
           basemap: 'hybrid',
           ground: 'world-elevation'

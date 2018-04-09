@@ -92,16 +92,18 @@ export default {
     },
     icon (val) {
       this.$i18n.locale = val
-      this.setLocalStorage('PLAY_LANG', val)
+      this.setLocalStorage('I18N_LANG', val)
     }
   },
   created () {
-    let lang = this.getLocalStorage('PLAY_LANG')
+    let lang = this.getLocalStorage('I18N_LANG')
     if (lang) {
       this.icon = lang
     } else {
-      this.setLocalStorage('PLAY_LANG', 'zhCHS')
-      this.icon = 'zhCHS'
+      let defaultLang = this.getNavigatorLang()
+      console.log(defaultLang)
+      this.setLocalStorage('I18N_LANG', defaultLang)
+      this.icon = defaultLang
     }
   },
   computed: {

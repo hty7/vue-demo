@@ -38,3 +38,24 @@ export const getCookie = (name, defaultValue) => {
     return defaultValue
   }
 }
+
+/**
+ *  获取浏览器配置语言
+ */
+export const getNavigatorLang = (language) => {
+  let type = navigator.appName
+  let lang = null
+  if (type === 'Netscape') {
+    lang = navigator.language // 获取非IE浏览器语言
+  } else {
+    lang = navigator.userLanguage // 获取IE5+浏览器语言
+  }
+  switch (lang) {
+    case 'zh-CN':
+      return 'zhCHS'
+    case 'en-US':
+      return 'en'
+    default:
+      return 'zhCHS'
+  }
+}

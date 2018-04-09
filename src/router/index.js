@@ -11,6 +11,7 @@ const announcement = r => require.ensure([], () => (require('@/view/announcement
 const announceList = r => require.ensure([], () => (require('@/view/announceList/')), 'announcement')
 const trafficAnalysis = r => require.ensure([], () => (require('@/view/dataAnalysis/trafficAnalysis/')), 'analysis')
 const flowAnalysis = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/')), 'analysis')
+const baiduMap = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/baiduMap')), 'map')
 const resource = r => require.ensure([], () => (require('@/view/resource/')), 'resource')
 const setting = r => require.ensure([], () => (require('@/view/setting/')), 'setting')
 
@@ -38,6 +39,10 @@ let routes = [{
     {
       path: '/flowAnalysis',
       component: flowAnalysis
+    },
+    {
+      path: '/baiduMap',
+      component: baiduMap
     },
     {
       path: '/resource',

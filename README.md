@@ -15,6 +15,9 @@ npm install
 # serve with hot reload at localhost:8060
 npm run dev
 
+# mock serve
+npm run nei-run
+
 # build for production with minification
 npm run build
 
@@ -56,13 +59,15 @@ npm test
 │   ├── directives                              // 自定义指令
 │   ├── filters                                 // 过滤器
 │   ├── images                                  // 公共图片
+│   ├── lang                                    // I18n静态资源
+│   ├── mixin                                   // 混入（不建议）
 │   ├── plugins                                 // 自定义插件
 │   ├── router                                  // 路由配置
 │   ├── service                                 // 数据交互API
 │   ├── store                                   // vuex的状态管理
 │   ├── style                                   // 公共样式文件
 │   ├── utils                                   // 公共函数/变量
-│   └── view                                    // vue模块
+│   ├── view                                    // vue模块
 │   ├── App.vue                                 // 页面入口文件
 │   └── main.js                                 // 程序入口文件，加载各种公共组件
 ├── static                                      // 静态文件

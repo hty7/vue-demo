@@ -72,7 +72,6 @@ export default {
       const map = new BMap.Map($el)
       this.map = map
       this.setMapOptions()
-      map.centerAndZoom(this.initCenter, this.initZoom)
       this.$emit('ready', {BMap, map})
     },
     // 设置地图配置

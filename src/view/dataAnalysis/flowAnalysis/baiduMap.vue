@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import BaiduMap from '@/components/baiduMap'
+import BaiduMap from '@/components/BaiduMap'
 export default {
   components: {
     BaiduMap

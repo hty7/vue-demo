@@ -36,7 +36,8 @@ module.exports = {
       items: [
         {path: 'trafficAnalysis', router: true, title: 'Traffic Analysis', icon: 'backup', color: 'indigo'},
         {path: 'flowAnalysis', router: true, title: 'Flow analysis', icon: 'backup', color: 'indigo'},
-        {path: 'baiduMap', router: true, title: 'baiduMap', icon: 'backup', color: 'indigo'}
+        {path: 'baiduMap', router: true, title: 'baiduMap', icon: 'backup', color: 'indigo'},
+        {path: 'mapbox', router: true, title: 'MapBox', icon: 'backup', color: 'indigo'}
       ]
     },
     {path: 'resource', router: true, title: 'Resource management', icon: 'track_changes', color: 'green'},

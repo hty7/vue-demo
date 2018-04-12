@@ -10,7 +10,7 @@
 import gdData from '@/utils/guangdong.json'
 import MapboxMap from '@/components/mapbox/mapbox'
 import EchartBar3d from '@/components/mapbox/children/echartBar3d'
-import MapboxControl from '@/components/mapbox/children/MapboxControl'
+import MapboxControl from '@/components/mapbox/tools/MapboxControl'
 import MapboxLayer from '@/components/mapbox/overlays/MapboxLayer'
 export default {
   components: {

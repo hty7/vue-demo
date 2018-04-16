@@ -16,7 +16,7 @@ module.exports = {
     skin1: 'Dark Forest',
     skin2: 'Ivory',
     lang: 'Lang',
-    zhCHS: 'SChinese',
+    zh: 'SChinese',
     zhCHT: 'TChinese',
     en: 'English'
   },

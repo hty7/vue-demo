@@ -16,7 +16,7 @@ module.exports = {
     skin1: '黑暗森林',
     skin2: '象牙白',
     lang: '语言',
-    zhCHS: '简体中文',
+    zh: '简体中文',
     zhCHT: '繁体中文',
     en: '英文'
   },

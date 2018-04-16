@@ -1,8 +1,8 @@
 <template>
   <mapbox-map mapWidth="100%" mapHeight="600px" @ready="initReady">
     <echart-bar3d :barData="barData"></echart-bar3d>
+    <mapbox-layer layerData="guangdong.json" :mapboxMap="mapboxMap"></mapbox-layer>
     <mapbox-control></mapbox-control>
-    <mapbox-layer layerData="guangdong.json"></mapbox-layer>
   </mapbox-map>
 </template>
 
@@ -40,7 +40,8 @@ export default {
       {name: '潮州市', value: [116.623721, 23.779569]},
       {name: '揭阳市', value: [115.970463, 23.373230]},
       {name: '云浮市', value: [111.746914, 22.934758]}
-    ]
+    ],
+    mapboxMap: null
   }),
   computed: {
     layerData () {
@@ -48,7 +49,8 @@ export default {
     }
   },
   methods: {
-    initReady ({BMap, map}) {
+    initReady ({mapboxgl, mapboxMap}) {
+      this.mapboxMap = mapboxMap
     }
   }
 }

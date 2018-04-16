@@ -17,7 +17,8 @@ export default {
   },
   data: () => ({
     chart1: null,
-    chart2: null
+    chart2: null,
+    debounceTdentify: 0
   }),
   computed: {
   },
@@ -205,9 +206,13 @@ export default {
       this.chart3.setOption(option3)
     },
     resizeFu (el) {
-      this.chart1.resize()
-      this.chart2.resize()
-      this.chart3.resize()
+      // 重绘，防抖500ms延迟
+      this.debounceTdentify && clearTimeout(this.debounceTdentify)
+      this.debounceTdentify = setTimeout(() => {
+        this.chart1.resize()
+        this.chart2.resize()
+        this.chart3.resize()
+      }, 500)
     }
   }
 }

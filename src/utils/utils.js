@@ -52,10 +52,10 @@ export const getNavigatorLang = (language) => {
   }
   switch (lang) {
     case 'zh-CN':
-      return 'zhCHS'
+      return 'zh'
     case 'en-US':
       return 'en'
     default:
-      return 'zhCHS'
+      return 'zh'
   }
 }

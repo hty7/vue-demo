@@ -8,6 +8,7 @@
 <script>
 import echarts from 'echarts'
 import mapboxgl from 'mapbox-gl'
+import MapboxLanguage from '@mapbox/mapbox-gl-language'
 import 'echarts-gl'
 export default {
   props: {
@@ -66,6 +67,20 @@ export default {
       global.mapboxgl = mapboxgl
       global.mapboxChart = this.chart
       global.mapboxOption = this.options
+      this.$nextTick(() => {
+        const {mapboxOption, mapboxChart} = global
+        mapboxChart.setOption(mapboxOption)
+        // 获取地图map对象
+        const mapboxMap = mapboxChart.getModel().getComponent('mapbox3D').getMapbox()
+        global.mapboxMap = mapboxMap
+        this.$store.commit('SET_MAPBOXMAP', mapboxMap)
+        this.$emit('ready', {mapboxgl, mapboxMap})
+        // 设置地图语言
+        let lang = this.getLocalStorage('I18N_LANG') || 'zh'
+        mapboxMap.addControl(new MapboxLanguage({
+          defaultLanguage: lang
+        }))
+      })
     }
   },
   computed: {

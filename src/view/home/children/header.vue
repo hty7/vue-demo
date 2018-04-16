@@ -53,7 +53,7 @@
           <v-list-tile>
             {{$t('optionMessage.lang')}}：
             <v-btn-toggle v-model="icon">
-              <v-btn flat value="zhCHS">
+              <v-btn flat value="zh">
                 <span>中文</span>
                 <v-icon>format_align_left</v-icon>
               </v-btn>
@@ -80,7 +80,7 @@
 import {mapGetters} from 'vuex'
 export default {
   data: () => ({
-    icon: 'zhCHS',
+    icon: 'zh',
     fav: true,
     menu: false,
     message: true,
@@ -101,7 +101,6 @@ export default {
       this.icon = lang
     } else {
       let defaultLang = this.getNavigatorLang()
-      console.log(defaultLang)
       this.setLocalStorage('I18N_LANG', defaultLang)
       this.icon = defaultLang
     }

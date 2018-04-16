@@ -16,6 +16,7 @@
     "nei-run": "nei server"
   },
   "dependencies": {
+    "@mapbox/mapbox-gl-language": "^0.9.2",
     "axios": "^0.18.0",
     "echarts": "^4.0.4",
     "echarts-gl": "^1.1.0",

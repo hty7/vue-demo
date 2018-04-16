@@ -48,11 +48,9 @@ export default {
   methods: {
     reload () {
       this.$nextTick(() => {
-        const {mapboxOption, mapboxChart} = global
+        const {mapboxOption} = global
         this.series.data = this.setBarData(this.barData)
         mapboxOption.series = this.series
-        mapboxChart.setOption(mapboxOption)
-        global.mapboxMap = mapboxChart.getModel().getComponent('mapbox3D').getMapbox()
       })
     },
     setBarData (data) {

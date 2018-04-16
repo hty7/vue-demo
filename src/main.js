@@ -34,10 +34,10 @@ Vue.use(VueI18n)
 
 // 设置语言项
 const i18n = new VueI18n({
-  locale: 'zhCHS',
+  locale: 'zh',
   messages: {
     'en': LangEn,
-    'zhCHS': LangZhCHS,
+    'zh': LangZhCHS,
     'zhCHT': LangZhCHT
   }
 })

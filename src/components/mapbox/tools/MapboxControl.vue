@@ -1,4 +1,5 @@
 <script>
+import {mapGetters} from 'vuex'
 export default {
   name: 'mapbox-control',
   render () {
@@ -7,22 +8,20 @@ export default {
   data: () => ({
     nav: null
   }),
-  props: {
-    barData: {
-      type: Array
-    }
+  computed: {
+    ...mapGetters(['mapboxMap'])
   },
-  mounted () {
-    this.reload()
+  watch: {
+    mapboxMap (newVal, oldVal) {
+      if (newVal) this.reload()
+    }
   },
   methods: {
     reload () {
-      this.$nextTick(() => {
-        const {mapboxMap, mapboxgl} = global
-        if (this.nav) mapboxMap.removeControl(this.nav)
-        this.nav = new mapboxgl.NavigationControl()
-        mapboxMap.addControl(this.nav)
-      })
+      const {mapboxMap, mapboxgl} = global
+      if (this.nav) mapboxMap.removeControl(this.nav)
+      this.nav = new mapboxgl.NavigationControl()
+      mapboxMap.addControl(this.nav)
     }
   }
 }

@@ -49,7 +49,7 @@ export default {
           zoom: 6.2,
           pitch: 60,
           bearing: 0,
-          style: 'mapbox://styles/mapbox/dark-v9',
+          style: 'mapbox://styles/mapbox/satellite-v9',
           boxHeight: 20,
           light: {
             main: {

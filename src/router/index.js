@@ -13,6 +13,7 @@ const trafficAnalysis = r => require.ensure([], () => (require('@/view/dataAnaly
 const flowAnalysis = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/')), 'analysis')
 const baiduMap = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/baiduMap')), 'map')
 const mapbox = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/mapbox')), 'map')
+const mapbox2 = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/mapbox2')), 'map')
 const resource = r => require.ensure([], () => (require('@/view/resource/')), 'resource')
 const setting = r => require.ensure([], () => (require('@/view/setting/')), 'setting')
 
@@ -48,6 +49,10 @@ let routes = [{
     {
       path: '/mapbox',
       component: mapbox
+    },
+    {
+      path: '/mapbox2',
+      component: mapbox2
     },
     {
       path: '/resource',

@@ -39,7 +39,8 @@ module.exports = {
         {path: 'flowAnalysis', router: true, title: '流动分析', icon: 'backup', color: 'indigo'},
         {path: 'baiduMap', router: true, title: '百度地图', icon: 'backup', color: 'indigo'},
         {path: 'mapbox', router: true, title: 'MapBox', icon: 'backup', color: 'indigo'},
-        {path: 'mapbox2', router: true, title: 'MapBox2', icon: 'backup', color: 'indigo'}
+        {path: 'mapbox2', router: true, title: 'MapBox2', icon: 'backup', color: 'indigo'},
+        {path: 'arcGIS', router: true, title: 'arcGIS', icon: 'backup', color: 'indigo'}
       ]
     },
     {path: 'resource', router: true, title: '资源管理', icon: 'track_changes', color: 'green'},

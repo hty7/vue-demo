@@ -38,7 +38,8 @@ module.exports = {
         {path: 'flowAnalysis', router: true, title: 'Flow analysis', icon: 'backup', color: 'indigo'},
         {path: 'baiduMap', router: true, title: 'baiduMap', icon: 'backup', color: 'indigo'},
         {path: 'mapbox', router: true, title: 'MapBox', icon: 'backup', color: 'indigo'},
-        {path: 'mapbox2', router: true, title: 'MapBox2', icon: 'backup', color: 'indigo'}
+        {path: 'mapbox2', router: true, title: 'MapBox2', icon: 'backup', color: 'indigo'},
+        {path: 'arcGIS', router: true, title: 'arcGIS', icon: 'backup', color: 'indigo'}
       ]
     },
     {path: 'resource', router: true, title: 'Resource management', icon: 'track_changes', color: 'green'},

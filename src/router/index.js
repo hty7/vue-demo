@@ -14,6 +14,7 @@ const flowAnalysis = r => require.ensure([], () => (require('@/view/dataAnalysis
 const baiduMap = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/baiduMap')), 'map')
 const mapbox = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/mapbox')), 'map')
 const mapbox2 = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/mapbox2')), 'map')
+const arcGIS = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/arcGIS')), 'map')
 const resource = r => require.ensure([], () => (require('@/view/resource/')), 'resource')
 const setting = r => require.ensure([], () => (require('@/view/setting/')), 'setting')
 
@@ -53,6 +54,10 @@ let routes = [{
     {
       path: '/mapbox2',
       component: mapbox2
+    },
+    {
+      path: '/arcGIS',
+      component: arcGIS
     },
     {
       path: '/resource',

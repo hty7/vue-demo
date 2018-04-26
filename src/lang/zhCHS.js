@@ -43,6 +43,7 @@ module.exports = {
         {path: 'arcGIS', router: true, title: 'arcGIS', icon: 'backup', color: 'indigo'}
       ]
     },
+    {path: 'threeJS', router: true, title: '3D模型', icon: 'track_changes', color: 'green'},
     {path: 'resource', router: true, title: '资源管理', icon: 'track_changes', color: 'green'},
     {path: 'setting', router: true, title: '设置', icon: 'settings', color: 'purple'}
   ]

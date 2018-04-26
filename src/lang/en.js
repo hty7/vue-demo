@@ -42,6 +42,7 @@ module.exports = {
         {path: 'arcGIS', router: true, title: 'arcGIS', icon: 'backup', color: 'indigo'}
       ]
     },
+    {path: 'threeJS', router: true, title: 'threeJS webGL', icon: 'track_changes', color: 'green'},
     {path: 'resource', router: true, title: 'Resource management', icon: 'track_changes', color: 'green'},
     {path: 'setting', router: true, title: 'Settings', icon: 'settings', color: 'purple'}
   ]

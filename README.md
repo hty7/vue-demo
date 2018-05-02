@@ -106,10 +106,10 @@ $ npm test
 通过抽取业务逻辑相同的模块全局注册，任何新创建的Vue根实例模板可以使用
 
 main.js
-
+```js
     import SectionContent from '@/components/SectionContent'
     Vue.component('section-content', SectionContent)
-
+```
 业务组件
      
     <section-content></section-content>
@@ -127,6 +127,7 @@ main.js
 通过directive就可以在Vue上注册指令
 
 #### 注册一个全局自定义指令 `v-focus`
+```js
     Vue.directive('focus', {
     // 当被绑定的元素插入到 DOM 中时……
     inserted: function (el) {
@@ -134,6 +135,7 @@ main.js
         el.focus()
     }
     })
+```
 
 #### 🐦 指令模块化
  [学习更多 v-stealth元素显示隐藏](https://segmentfault.com/a/1190000014370906)
@@ -145,7 +147,7 @@ main.js
 stealth.js
 
 元素隐藏显示指令
-
+```js
     export default {
       // 只调用一次，指令第一次绑定到元素时调用
       bind (el, binding, vnode) {
@@ -168,6 +170,8 @@ stealth.js
     	console.log('unbind')
       }
     }
+```
+
 指令模块化，通过index.js管理自定义指令。添加新指令只需在modules中加入模块，并引入
 
 index.js
@@ -178,10 +182,11 @@ index.js
 全局Vue中通过directive绑定全部指令
 
 mian.js
-
+```js
     import * as directives from './directives'
     // 注册指令
     Object.keys(directives).forEach(k => Vue.directive(k, directives[k]))
+```
 
 业务组件中，加入v-*(指令名)
 
@@ -194,23 +199,26 @@ mian.js
 index.js
 
 // 字符串转化为数值
-
+```js
 	export const toNumber = value ={
 		if (value) return parseInt(value)
 		return ''
 	}
+```
 
 全局Vue中通过filter注册过滤器
 
 main.js
-
+```js
     import * as filters from './filters'
     Object.keys(filters).forEach(k => Vue.filter(k, filters[k]))
+```
 
 业务页面中使用双花括号插值和 v-bind 表达式使用
-
+```js
     <!-- 在双花括号中 -->
     {{ message | toNumber }}
     
     <!-- 在 `v-bind` 中 -->
     <div v-bind:id="rawId | toNumber"></div>
+```

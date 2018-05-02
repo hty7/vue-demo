@@ -8,10 +8,9 @@ import dat from 'dat.gui'
 // import * as TWEEN from 'tween'
 export default {
   data: () => ({
+    scene: null,
+    camera: null,
     controls: {
-      scene: null,
-      camera: null,
-      renderer: null,
       rotationSpeed: 0.02
     }
   }),
@@ -25,6 +24,7 @@ export default {
       let {initMesh, controls} = this
       const gui = new dat.GUI() // gui监测器
       gui.add(controls, 'rotationSpeed', 0, 0.5)
+      console.log(gui)
       initMesh()
     },
     initMesh () {

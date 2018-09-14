@@ -1,11 +1,11 @@
 <template>
-  <v-toolbar app fixed clipped-left>
+  <v-toolbar app fixed dark clipped-left height="52" color="primary">
     <v-toolbar-side-icon @click.stop="drawer"></v-toolbar-side-icon>
     <v-toolbar-title>Application</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-badge overlap color="red">
       <span slot="badge">3</span>
-      <v-avatar class="indigo">
+      <v-avatar class="indigo" size="38">
         <img src="/static/images/john.jpg" alt="John">
       </v-avatar>
     </v-badge>

@@ -4,9 +4,9 @@
     <Vmenu></Vmenu>
     <v-content>
       <v-container fluid>
-        <v-fade-transition mode="out-in">
+        <transition name="slide-fade">
           <router-view></router-view>
-        </v-fade-transition>
+        </transition>
       </v-container>
     </v-content>
   </v-app>
@@ -28,3 +28,12 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-enter {
+  transform: translateX(280px);
+  opacity: 0;
+}
+</style>

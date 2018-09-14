@@ -1,35 +1,32 @@
 <template>
   <v-navigation-drawer clipped fixed v-model="controlsOption.drawer" app>
-    <v-list dense>
-      <template v-for="(item, index) in routers">
-        <v-list-group no-action :key="index" v-if="item.items">
-          <v-list-tile slot="activator" :href="item.path" :to="{path: item.path}" >
-            <v-list-tile-action>
-              <v-icon light :color="item.color" v-html="item.icon"></v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>{{item.title}}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-          <v-list-tile v-for="subItem in item.items" :key="subItem.title" :href="subItem.path" :to="{path: subItem.path}">
-            <v-list-tile-content>
-              <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
-            </v-list-tile-content>
-            <v-list-tile-action>
-              <v-icon light :color="subItem.color" v-html="subItem.icon"></v-icon>
-            </v-list-tile-action>
-          </v-list-tile>
-        </v-list-group>
-        <v-list-tile :href="item.path" :to="{path: item.path}" :key="index" v-else>
+    <template v-for="(item, index) in routers">
+      <v-list dense :key="index" v-if="item.path">
+        <v-list-tile :href="item.title" :to="{path: item.path}" :key="index">
           <v-list-tile-action>
-            <v-icon light :color="item.color" v-html="item.icon"></v-icon>
+            <v-icon>{{item.icon}}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title v-html="item.title"></v-list-tile-title>
+            <v-list-tile-title>{{item.title}}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-      </template>
-    </v-list>
+      </v-list>
+      <v-list dense :key="index" v-else>
+        <v-divider></v-divider>
+        <v-subheader>{{item.title}}</v-subheader>
+          <template v-for="subItem in item.items">
+          <v-list-tile :href="subItem.title" :to="{path: subItem.path}" :key="subItem.title">
+            <v-list-tile-action>
+              <v-icon light>{{subItem.icon}}</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>{{subItem.title}}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </template>
+        <v-divider></v-divider>
+      </v-list>
+    </template>
   </v-navigation-drawer>
 </template>
 

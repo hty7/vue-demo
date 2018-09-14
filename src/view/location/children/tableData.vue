@@ -46,7 +46,7 @@
               <v-icon color="teal">edit</v-icon>
             </v-btn>
             <v-btn icon class="mx-0" @click="deleteItem(props.item)">
-              <v-icon color="pink">delete</v-icon>
+              <v-icon color="pink">delete_outline</v-icon>
             </v-btn>
           </td>
         </tr>
@@ -57,11 +57,6 @@
     </v-data-table>
     <div class="text-xs-right">
       <v-pagination :length="3" v-model="page"></v-pagination>
-    </div>
-    <div style="position: fixed;bottom: 50px;right: 20px;z-index: 999;" v-stealth="true">
-      <v-btn fab color="pink" @click="editItem(defaultItem)">
-        <v-icon>add</v-icon>
-      </v-btn>
     </div>
   </div>
 </template>

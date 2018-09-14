@@ -18,6 +18,14 @@
 
 >   或者您可以 "follow" 一下，我会不断开源更多的有趣的项目
 
+## 部分页面效果图
+
+<p align="center"><img align="center" src="https://github.com/hty7/vue-demo/blob/master/screenshots/home.png"/></p>
+
+<p align="center"><img align="center" src="https://github.com/hty7/vue-demo/blob/master/screenshots/map.png"/></p>
+
+<p align="center"><img align="center" src="https://github.com/hty7/vue-demo/blob/master/screenshots/mobile-1.png"/></p>
+
 ## 技术栈
 
 vue2 + vuex + vuetify + vue-router + webpack + ES6/7 + axios + sass

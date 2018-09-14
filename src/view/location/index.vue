@@ -1,7 +1,9 @@
 <template>
   <div>
-    <search></search>
-    <table-Data></table-Data>
+    <search>
+      <v-btn slot="btnContent" color="success" @click="editItem">新增</v-btn>
+    </search>
+    <table-Data ref="table"></table-Data>
   </div>
 </template>
 
@@ -13,9 +15,10 @@ export default {
     TableData, Search
   },
   data: () => ({}),
-  computed: {
-  },
   methods: {
+    editItem () {
+      this.$refs.table.editItem()
+    }
   }
 }
 </script>

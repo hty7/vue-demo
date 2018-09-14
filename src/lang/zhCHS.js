@@ -28,23 +28,41 @@ module.exports = {
     date: '日期'
   },
   routers: [
-    {path: 'location', router: true, title: '列表', icon: 'transfer_within_a_station', color: 'blue'},
-    {title: '公告', icon: 'record_voice_over', color: 'orange', items: [{title: '新建公告', path: 'announcement', router: true}, {title: '公告列表', path: 'announceList'}]},
+    {path: 'main', router: true, title: '首页', icon: 'home', color: 'blue'},
+    {
+      title: '公告',
+      icon: 'record_voice_over',
+      color: 'orange',
+      items: [
+        {path: 'announcement', router: true, title: '新建公告', icon: 'chat_bubble', color: 'blue'},
+        {path: 'location', router: true, title: '列表', icon: 'clear_all', color: 'blue'}
+      ]
+    },
     {
       title: '数据分析',
       icon: 'backup',
       color: 'indigo',
       items: [
-        {path: 'trafficAnalysis', router: true, title: '流量分析', icon: 'backup', color: 'indigo'},
-        {path: 'flowAnalysis', router: true, title: '流动分析', icon: 'backup', color: 'indigo'},
-        {path: 'baiduMap', router: true, title: '百度地图', icon: 'backup', color: 'indigo'},
-        {path: 'mapbox', router: true, title: 'MapBox', icon: 'backup', color: 'indigo'},
-        {path: 'mapbox2', router: true, title: 'MapBox2', icon: 'backup', color: 'indigo'},
-        {path: 'arcGIS', router: true, title: 'arcGIS', icon: 'backup', color: 'indigo'}
+        {path: 'trafficAnalysis', router: true, title: '流量分析', icon: 'equalizer', color: 'indigo'},
+        {path: 'flowAnalysis', router: true, title: '流动分析', icon: 'timeline', color: 'indigo'},
+        {path: 'baiduMap', router: true, title: '百度地图', icon: 'satellite', color: 'indigo'},
+        {path: 'mapbox', router: true, title: 'MapBox', icon: 'map', color: 'indigo'},
+        {path: 'mapbox2', router: true, title: 'MapBox2', icon: 'map', color: 'indigo'},
+        {path: 'arcGIS', router: true, title: 'arcGIS', icon: 'nature_people', color: 'indigo'}
       ]
     },
-    {path: 'threeJS', router: true, title: '3D模型', icon: 'track_changes', color: 'green'},
-    {path: 'resource', router: true, title: '资源管理', icon: 'track_changes', color: 'green'},
-    {path: 'setting', router: true, title: '设置', icon: 'settings', color: 'purple'}
+    {path: 'threeJS', router: true, title: '3D模型', icon: 'wifi_tethering', color: 'green'},
+    {path: 'resource', router: true, title: '资源管理', icon: 'subscriptions', color: 'green'},
+    {
+      title: '设置',
+      icon: 'settings',
+      color: 'purple',
+      items: [
+        {path: 'setting', router: true, title: '用户管理', icon: 'folder_shared', color: 'purple'},
+        {path: 'setting1', router: true, title: '角色管理', icon: 'supervised_user_circle', color: 'purple'},
+        {path: 'setting2', router: true, title: '权限管理', icon: 'security', color: 'purple'},
+        {path: 'setting3', router: true, title: '设置', icon: 'settings', color: 'purple'}
+      ]
+    }
   ]
 }

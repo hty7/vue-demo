@@ -3,7 +3,6 @@
     <v-layout>
       <v-flex>
         <v-card>
-          <v-card-media></v-card-media>
           <v-card-title>
             <div>
               <h3 class="headline mb-0">文章信息</h3>
@@ -59,7 +58,7 @@
             <v-container fluid>
               <v-layout row>
                 <v-flex xs12>
-                  <v-text-field name="input-1" label="文本内容" textarea></v-text-field>
+                  <v-textarea outline label="文本内容"></v-textarea>
                 </v-flex>
               </v-layout>
             </v-container>

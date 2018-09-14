@@ -2,7 +2,6 @@
   <v-layout>
     <v-flex>
       <v-card>
-        <v-card-media></v-card-media>
         <v-card-title>
           <div>
             <h3 class="headline mb-0">文章发送-公告人</h3>

@@ -3,12 +3,12 @@
     <v-form v-model="valid">
       <v-layout row wrap>
         <v-flex md3>
-          <v-text-field :label="$t('message.name')" v-model="params.name" required></v-text-field>
-        </v-flex>
+          <v-text-field solo single-line clearable required :label="$t('message.name')" v-model="params.name"></v-text-field>
+        </v-flex>&nbsp;
         <v-flex md3>
           <v-menu ref="menu" lazy :close-on-content-click="false" transition="scale-transition" offset-y full-width :nudge-right="40" min-width="290px">
-            <v-text-field slot="activator" :label="$t('message.date')" v-model="params.date" prepend-icon="event"
-              readonly required>
+            <v-text-field slot="activator" :label="$t('message.date')" v-model="params.date"
+              solo readonly required>
             </v-text-field>
             <v-date-picker ref="picker" v-model="params.date" @change="save"
               :event-color="date => date[9] % 2 ? 'red' : 'yellow'"
@@ -18,6 +18,7 @@
           </v-menu>
         </v-flex>
         <v-btn color="info">{{$t('buttom.search')}}</v-btn>
+        <slot name="btnContent"></slot>
       </v-layout>
     </v-form>
   </div>

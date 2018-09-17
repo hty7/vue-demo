@@ -22,7 +22,7 @@ const setting = r => require.ensure([], () => (require('@/view/setting/')), 'set
 let routes = [{
   path: '/',
   component: home,
-  redirect: '/location',
+  redirect: '/main',
   children: [
     {
       path: '/main',

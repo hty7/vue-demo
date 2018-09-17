@@ -28,11 +28,12 @@
 </template>
 
 <script>
-import Step1 from './children/step1'
-import Step2 from './children/step2'
+// import Step1 from './children/step1'
+// import Step2 from './children/step2'
 export default {
   components: {
-    Step1, Step2
+    Step1: resolve => { require(['./children/step1'], resolve) },
+    Step2: resolve => { require(['./children/step2'], resolve) }
   },
   data: () => ({
     e1: 0

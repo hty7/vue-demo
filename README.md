@@ -230,3 +230,19 @@ main.js
     <!-- 在 `v-bind` 中 -->
     <div v-bind:id="rawId | toNumber"></div>
 ```
+
+## 项目优化 :fire:
+
+项目打包上线后我们会发现部分页面加载过慢，因此项目生产环境进行必要的优化
+
+首先我们先安装`webpack-bundle-analyzer`插件，她可以将打包后的内容束展示为方便交互的直观树状图，有利于我们进行接下来的项目优化分析
+
+启动命令： `npm run build --report`
+
+官方图例
+<p align="center"><img align="center" src="https://github.com/hty7/vue-demo/blob/master/screenshots/webpack-bundle-analyzer.gif"/></p>
+
+### 📘  路由优化
+
+### 📘  打包优化
+

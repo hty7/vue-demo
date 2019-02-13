@@ -1,5 +1,5 @@
 <template>
-  <mapbox-map mapWidth="100%" mapHeight="600px" @ready="initReady">
+  <mapbox-map mapWidth="100%" mapHeight="calc(100vh - 100px)" @ready="initReady">
     <echart-bar3d :barData="barData"></echart-bar3d>
     <mapbox-layer layerData="guangdong.json" :mapboxMap="mapboxMap"></mapbox-layer>
     <mapbox-control></mapbox-control>

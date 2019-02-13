@@ -2,7 +2,8 @@
   <v-container fluid grid-list-md style="padding: 0px;">
     <v-layout row wrap>
       <v-flex xs12 sm6 md3 lg3>
-        <div class="module module-hover" style="background-color: #5a796d;">
+        <div class="module module-hover" style="background: linear-gradient(to right, #73a996, #5a796d);">
+          <img src="static/images/circle.svg" class="card-img-absolute" alt="circle-image">
           <div class="module-box">
             <div class="module-box-img">
               <v-icon size="42" color="white">android</v-icon>
@@ -21,7 +22,8 @@
         </div>
       </v-flex>
       <v-flex xs12 sm6 md3 lg3>
-        <div class="module module-hover" style="background-color: #4076a7;">
+        <div class="module module-hover" style="background: linear-gradient(to right, #75bef9, #047edf);">
+          <img src="static/images/circle.svg" class="card-img-absolute" alt="circle-image">
           <div class="module-box">
             <div class="module-box-img">
               <v-icon size="42" color="white">pie_chart</v-icon>
@@ -40,7 +42,8 @@
         </div>
       </v-flex>
       <v-flex xs12 sm6 md3 lg3>
-        <div class="module module-hover" style="background-color: #159bab;">
+        <div class="module module-hover" style="background: linear-gradient(to right, #159bab, #009880);">
+          <img src="static/images/circle.svg" class="card-img-absolute" alt="circle-image">
           <div class="module-box">
             <div class="module-box-img">
               <v-icon size="42" color="white">burst_mode</v-icon>
@@ -59,7 +62,8 @@
         </div>
       </v-flex>
       <v-flex xs12 sm6 md3 lg3>
-        <div class="module module-hover" style="background-color: #4a4665;">
+        <div class="module module-hover" style="background: linear-gradient(to right, #f3ac7e, #fe7096);">
+          <img src="static/images/circle.svg" class="card-img-absolute" alt="circle-image">
           <div class="module-box">
             <div class="module-box-img">
               <v-icon size="42" color="white">timeline</v-icon>
@@ -220,9 +224,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.module-hover:hover {
-  box-shadow: 1px 1px 3px #242a2f;
-  opacity: 0.9;
+.module-hover {
+  &:hover {
+    box-shadow: 1px 1px 3px #242a2f;
+    opacity: 0.9;
+    .card-img-absolute {
+      height: 110%;
+    }
+  }
+  .card-img-absolute {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    transition: all .8s;
+  }
 }
 .module {
   background-color: #fff;
@@ -230,6 +246,7 @@ export default {
   color: #fff;
   box-shadow: 1px 1px 6px #8096ab;
   border-radius: 5px;
+  position: relative;
   &-box {
     display: flex;
     width: 100%;

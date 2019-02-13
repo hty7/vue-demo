@@ -14,7 +14,6 @@ export default {
   },
   data: () => ({
     imgList: [
-      'static/images/404.png',
       'https://randomuser.me/api/portraits/men/22.jpg',
       'https://randomuser.me/api/portraits/men/23.jpg',
       'https://randomuser.me/api/portraits/men/24.jpg',

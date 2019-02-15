@@ -51,7 +51,15 @@ module.exports = {
       ]
     },
     {path: 'threeJS', router: true, title: 'threeJS webGL', icon: 'wifi_tethering', color: 'green'},
-    {path: 'resource', router: true, title: 'Resource management', icon: 'subscriptions', color: 'green'},
+    {
+      title: 'Resource management',
+      icon: 'folder',
+      color: 'indigo',
+      items: [
+        {path: 'resource', router: true, title: 'pictrue lazy', icon: 'subscriptions', color: 'green'},
+        {path: 'storage', router: true, title: 'indexedDB', icon: 'storage', color: 'green'}
+      ]
+    },
     {path: 'setting', router: true, title: 'Settings', icon: 'settings', color: 'purple'}
   ]
 }

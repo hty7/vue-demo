@@ -52,7 +52,15 @@ module.exports = {
       ]
     },
     {path: 'threeJS', router: true, title: '3D模型', icon: 'wifi_tethering', color: 'green'},
-    {path: 'resource', router: true, title: '资源管理', icon: 'subscriptions', color: 'green'},
+    {
+      title: '资源管理',
+      icon: 'folder',
+      color: 'indigo',
+      items: [
+        {path: 'resource', router: true, title: '图片流', icon: 'subscriptions', color: 'green'},
+        {path: 'storage', router: true, title: 'indexedDB', icon: 'storage', color: 'green'}
+      ]
+    },
     {
       title: '设置',
       icon: 'settings',

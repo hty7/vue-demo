@@ -17,6 +17,7 @@ const mapbox2 = r => require.ensure([], () => (require('@/view/dataAnalysis/flow
 const arcGIS = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/arcGIS')), 'map')
 const threeJS = r => require.ensure([], () => (require('@/view/threeJS')), 'threeJS')
 const resource = r => require.ensure([], () => (require('@/view/resource/')), 'resource')
+const storage = r => require.ensure([], () => (require('@/view/storage/')), 'storage')
 const setting = r => require.ensure([], () => (require('@/view/setting/')), 'setting')
 
 let routes = [{
@@ -67,6 +68,10 @@ let routes = [{
     {
       path: '/resource',
       component: resource
+    },
+    {
+      path: '/storage',
+      component: storage
     },
     {
       path: '/setting',

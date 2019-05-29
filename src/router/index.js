@@ -1,92 +1,52 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import {routerMode} from '@/config/env'
+import { getSessionStorage } from '@/utils/utils'
 
 Vue.use(Router)
 
-const login = r => require.ensure([], () => (require('@/view/login/login')), 'login')
-const home = r => require.ensure([], () => (require('@/view/home/')), 'home')
-const main = r => require.ensure([], () => (require('@/view/main/')), 'main')
-const location = r => require.ensure([], () => (require('@/view/location/')), 'location')
-const announcement = r => require.ensure([], () => (require('@/view/announcement/')), 'announcement')
-const trafficAnalysis = r => require.ensure([], () => (require('@/view/dataAnalysis/trafficAnalysis/')), 'analysis')
-const flowAnalysis = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/')), 'analysis')
-const baiduMap = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/baiduMap')), 'map')
-const mapbox = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/mapbox')), 'map')
-const mapbox2 = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/mapbox2')), 'map')
-const arcGIS = r => require.ensure([], () => (require('@/view/dataAnalysis/flowAnalysis/arcGIS')), 'map')
-const threeJS = r => require.ensure([], () => (require('@/view/threeJS')), 'threeJS')
-const resource = r => require.ensure([], () => (require('@/view/resource/')), 'resource')
-const storage = r => require.ensure([], () => (require('@/view/storage/')), 'storage')
-const setting = r => require.ensure([], () => (require('@/view/setting/')), 'setting')
-
-let routes = [{
-  path: '/',
-  component: home,
-  redirect: '/main',
-  children: [
-    {
-      path: '/main',
-      component: main
-    },
-    {
-      path: '/location',
-      component: location
-    },
-    {
-      path: '/announcement',
-      component: announcement
-    },
-    {
-      path: '/trafficAnalysis',
-      component: trafficAnalysis
-    },
-    {
-      path: '/flowAnalysis',
-      component: flowAnalysis
-    },
-    {
-      path: '/baiduMap',
-      component: baiduMap
-    },
-    {
-      path: '/mapbox',
-      component: mapbox
-    },
-    {
-      path: '/mapbox2',
-      component: mapbox2
-    },
-    {
-      path: '/arcGIS',
-      component: arcGIS
-    },
-    {
-      path: '/threeJS',
-      component: threeJS
-    },
-    {
-      path: '/resource',
-      component: resource
-    },
-    {
-      path: '/storage',
-      component: storage
-    },
-    {
-      path: '/setting',
-      component: setting
-    }
-  ]
-}, {
-  path: '/login',
-  component: login
-}]
+const Login = () => require.ensure([], () => (require('@/views/login/login')), 'Login')
+const Main = () => require.ensure([], () => (require('@/views/main/')), 'Main')
+const Home = () => require.ensure([], () => (require('@/views/home/')), 'Home')
+const NotFound = () => require.ensure([], () => (require('@/views/login/login')), 'Login')
 
 const router = new Router({
-  routes,
-  mode: routerMode,
-  strict: process.env.NODE_ENV !== 'production'
+  routes: [
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/',
+      component: Main,
+      redirect: '/home',
+      children: [
+        {
+          path: '/home',
+          component: Home
+        }
+      ]
+    },
+    {
+      path: '*',
+      component: NotFound
+    }
+  ]
+})
+
+// 路由守卫
+const checkPermission = async (to, from, next) => {
+  let isLogin = getSessionStorage('isLogin')
+  if (to.path === '/login') return next()
+  if (isLogin) {
+    return next()
+  } else {
+    return next ({path: '/login'})
+  }
+}
+
+router.beforeEach((to, from, next) => {
+  checkPermission(to, from, next)
 })
 
 export default router

@@ -1,0 +1,12 @@
+// 上下左右居中
+@mixin _center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin _wh($width, $height) {
+    width: $width;
+    height: $height;
+}

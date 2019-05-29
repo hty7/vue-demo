@@ -5,7 +5,7 @@
         <v-card-text class="avator-container">
           <div>
             <div class="avator-container-view">
-              <img :src="'static/images/avatar/' + avatarChooose + '.png'" alt="avatar" class="avator-big">
+              <img :src="require('../assets/images/avatar/' + avatarChooose + '.png')" alt="avatar" class="avator-big">
               <div class="avator-btn" @click="saveUserAvatar">
                 <p>确认头像</p>
               </div>
@@ -13,11 +13,15 @@
           </div>
           <div class="avator-container-choose">
             <template v-for="item in avatarList">
-              <img :src="'static/images/avatar/' + item.id + '.png'" alt="avatar" :key="item.id" @click="avatarChooose = item.id" class="avator-small">
+              <img :src="require('../assets/images/avatar/' + item.id + '.png')" alt="avatar" :key="item.id" @click="avatarChooose = item.id" class="avator-small">
             </template>
           </div>
-          <v-btn color="primary" block small @click.stop="saveUserAvatar">确定</v-btn>
-          <v-btn color="red" block outline small @click.stop="$emit('close')">取消</v-btn>
+          <v-btn color="primary" block small @click.stop="saveUserAvatar">
+            确定
+          </v-btn>
+          <v-btn color="red" block outline small @click.stop="$emit('close')">
+            取消
+          </v-btn>
         </v-card-text>
       </v-slide-y-transition>
     </v-card>
@@ -48,7 +52,7 @@ export default {
     ]
   }),
   watch: {
-    dialogShow (newVal, oldVal) {
+    dialogShow (newVal) {
       if (newVal) {
         let userAvatar = this.getLocalStorage('userAvatar')
         this.avatarChooose = !userAvatar ? '20180508023738286' : userAvatar

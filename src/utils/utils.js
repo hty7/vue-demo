@@ -1,6 +1,6 @@
 /**
- * 存储localStorage
- */
+* 存储localStorage
+*/
 export const setLocalStorage = (name, content) => {
   if (!name) return
   if (typeof content !== 'string') {
@@ -10,24 +10,24 @@ export const setLocalStorage = (name, content) => {
 }
 
 /**
- * 获取localStorage
- */
+* 获取localStorage
+*/
 export const getLocalStorage = name => {
   if (!name) return
   return window.localStorage.getItem(name)
 }
 
 /**
- * 删除localStorage
- */
+* 删除localStorage
+*/
 export const removeLocalStorage = name => {
   if (!name) return
   window.localStorage.removeItem(name)
 }
 
 /**
- * 设置sessionStorage
- */
+* 设置sessionStorage
+*/
 export const setSessionStorage = (name, content) => {
   if (!name) return
   if (typeof content !== 'string') {
@@ -37,24 +37,24 @@ export const setSessionStorage = (name, content) => {
 }
 
 /**
- * 获取sessionStorage
- */
+* 获取sessionStorage
+*/
 export const getSessionStorage = name => {
   if (!name) return
   return window.sessionStorage.getItem(name)
 }
 
 /**
- * 删除sessionStorage
- */
+* 删除sessionStorage
+*/
 export const removeSessionStorage = name => {
   if (!name) return
   window.sessionStorage.removeItem(name)
 }
 
 /**
- *  获取cookie
- */
+* 获取cookie
+*/
 export const getCookie = (name, defaultValue) => {
   let arr = null
   let reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)')
@@ -67,22 +67,13 @@ export const getCookie = (name, defaultValue) => {
 }
 
 /**
- *  获取浏览器配置语言
- */
-export const getNavigatorLang = (language) => {
-  let type = navigator.appName
-  let lang = null
-  if (type === 'Netscape') {
-    lang = navigator.language // 获取非IE浏览器语言
+* 阻止弹窗后页面的滚动
+*/
+export const preventScroll = (ev) => {
+  let bodyDom = document.body
+  if (ev) {
+    bodyDom.style.cssText = 'overflow-y: hidden;'
   } else {
-    lang = navigator.userLanguage // 获取IE5+浏览器语言
-  }
-  switch (lang) {
-    case 'zh-CN':
-      return 'zh'
-    case 'en-US':
-      return 'en'
-    default:
-      return 'zh'
+    bodyDom.style.cssText = 'overflow-y: initial;'
   }
 }

@@ -3,12 +3,12 @@
   bottom: 100px;
   left: 50%;
   box-sizing: border-box;
+  min-width: 30%;
   max-width: 80%;
   height: 40px;
   line-height: 20px;
   padding: 10px 20px;
   transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
   text-align: center;
   z-index: 9999;
   font-size: 14px;
@@ -16,8 +16,27 @@
   border-radius: 5px;
   background: rgba(0, 0, 0, 0.7);
   animation: show-toast .5s;
-  -webkit-animation: show-toast .5s;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.toast-top {
+  top: 30px;
+  bottom: inherit;
+}
+
+.toast-center {
+  top: 50%;
+  margin-top: -20px;
+  bottom: inherit;
+}
+
+@keyframes show-toast {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

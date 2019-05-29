@@ -1,0 +1,210 @@
+@import '../../style/minxin';
+.credential-check {
+  margin-bottom: 70px;
+}
+.content-box {
+  background: #fff;
+  padding: .3rem;
+  margin-bottom: .2rem;
+  .content-box-title {
+    // border-bottom: 1px #cfcfcf dashed;
+    h4 {
+      font-size: .32rem;
+      color: #000;
+      padding-bottom: .12rem;
+    }
+    .img {
+      float: left;
+      clear: both;
+      margin-right: .15rem;
+      img {
+        width: .7rem;
+      }
+    }
+    .des {
+      font-size: .22rem;
+      line-height: .35rem;
+      margin-bottom: .3rem;
+    }
+    .shooting-example {
+      position: relative;
+      border: 1px #e8e8e8 solid;
+      border-radius: 5px;
+      padding: .1rem .3rem 0;
+      // margin-bottom: .1rem;
+      span {
+        position: absolute;
+        top: -13px;
+        left: .55rem;
+        font-size: .22rem;
+        background: #fff;
+        padding: 0 .2rem;
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .content-box-body {
+    margin: .3rem 0;
+    .camera-box {
+      position: relative;
+      text-align: center;
+      margin-bottom: .2rem;
+      img {
+        width: 100%;
+        border-radius: 10px;
+      }
+      .custom-picture {
+        width: auto;
+        height: 220px;
+      }
+      .mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include _wh(100%, 97%);
+        background-color: rgba(195, 195, 195, .58);
+        border-radius: 10px;
+        .mask-content {
+          @include _center;
+          img {
+            width: 1rem;
+          }
+          span {
+            color: #fff;
+            font-size: .32rem;
+            font-weight: bold;
+          }
+        }
+        input {
+          opacity: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .upload-list {
+        position: relative;
+        height: 1rem;
+        padding: .18rem;
+        box-sizing: content-box;
+        border: 1px #e2e2e2 solid;
+        border-radius: 4px;
+        overflow: hidden;
+        background: #f8f8f9;
+        .upload-list-content {
+          height: 100%;
+          text-align: left;
+          .custom-picture {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 1px;
+            overflow: hidden;
+          }
+          .picture-des {
+            display: inline-block;
+            margin: 0 0 0 .18rem;
+            max-width: 60%;
+            font-size: .3rem;
+            line-height: .5rem;
+            p {
+              display: block;
+              margin-bottom: 0;
+              max-width: 100%;
+              font-size: .26rem;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              color: #ccc;
+            }
+          }
+          .upload-list-content-play {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            top: .38rem;
+            right: .9rem;
+            border-radius: 50%;
+            img {
+              @include _wh(18px, 18px);
+              @include _center;
+            }
+          }
+          .upload-list-content-del {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            top: .38rem;
+            right: .2rem;
+            border-radius: 50%;
+            img {
+              @include _wh(18px, 18px);
+              @include _center;
+            }
+          }
+          .upload-list-content-label {
+            position: absolute;
+            top: -7px;
+            right: -17px;
+            width: 46px;
+            height: 26px;
+            transform: rotate(45deg);
+            background: #13ce66;
+            img {
+              width: 14px;
+              margin: 11px 0 0 15px;
+              transform: rotate(-45deg);
+            } 
+          }
+        }
+        .deleting {
+          position: relative;
+          transition: all .42s;
+          transform: translateX(-.8rem);
+        }
+        .upload-list-delete {
+          position: absolute;
+          top: 0;
+          right: -1rem;
+          @include _wh(1rem, 100%);
+          background: #f55;
+          span {
+            color: #fff;
+            font-size: .26rem;
+            @include _center;
+          }
+        }
+        .deletingBox {
+          transition: all .42s;
+          transform: translateX(-1rem);
+        }
+      }
+    }
+  }
+  .description {
+    text-align: center;
+    font-size: .22rem;
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: .15rem 0;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+.emphasize {
+  color: #f99801;
+  font-size: .27rem;
+}
+
+.fade-enter-active {
+  transition: all 1s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+  transform: translateY(-50px)
+}

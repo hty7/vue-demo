@@ -7,8 +7,9 @@ Toast.install = function (Vue, options) {
   for (let property in options) {
     opt[property] = options[property]
   }
-  Vue.prototype.$toast = (tips, type) => {
+  Vue.prototype.$toast = (tips, type, duration) => {
     if (type) opt.defaultType = type
+    if (duration) opt.duration = duration
     if (document.getElementsByClassName('vue-toast').length) return
     // 创建构造器，定义好提示信息的模板
     let ToastTpl = Vue.extend({

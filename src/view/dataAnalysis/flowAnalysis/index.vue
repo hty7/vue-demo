@@ -1,5 +1,5 @@
 <template>
-  <div id="chartMap" ref="chartMap" style="width: 100%;height: 600px;" v-loading="loading"></div>
+  <div id="chartMap" ref="chartMap" style="width: 100%;height: calc(100vh - 100px)" v-loading="loading"></div>
 </template>
 
 <script>

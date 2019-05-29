@@ -3,10 +3,10 @@
     <v-toolbar-side-icon @click.stop="drawer"></v-toolbar-side-icon>
     <v-toolbar-title>Application</v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-badge overlap color="red">
+    <v-badge overlap color="red" style="cursor: pointer">
       <span slot="badge">3</span>
       <v-avatar class="indigo" size="38">
-        <img src="/static/images/john.jpg" alt="John">
+        <img :src="accoutMes.avatar" alt="avatar">
       </v-avatar>
     </v-badge>
     <v-menu :close-on-content-click="false" :nudge-width="200" v-model="menu">
@@ -22,8 +22,8 @@
         </v-expansion-panel>
         <v-list>
           <v-list-tile avatar>
-            <v-list-tile-avatar>
-              <img src="/static/images/john.jpg" alt="John">
+            <v-list-tile-avatar @click="editAvatarShow = true" style="cursor: pointer">
+              <img :src="accoutMes.avatar" alt="avatar">
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title>John YJ</v-list-tile-title>
@@ -38,6 +38,15 @@
         </v-list>
         <v-divider></v-divider>
         <v-list>
+          <v-list-tile @click="editAvatarShow = true">
+            <v-list-tile-action>
+               <v-icon color="teal">edit</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-sub-title>修改头像</v-list-tile-sub-title>
+            </v-list-tile-content>
+            <edit-avatar :dialogShow="editAvatarShow" @saveUserAvatar="saveUserAvatar" @close="editAvatarShow=false"></edit-avatar>
+          </v-list-tile>
           <v-list-tile>
             <v-list-tile-action>
               <v-switch v-model="message" color="purple"></v-switch>
@@ -78,10 +87,20 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import EditAvatar from '@/components/editAvatar'
 export default {
+  components: {
+    EditAvatar
+  },
   data: () => ({
     icon: 'zh',
+    accoutMes: {
+      userName: 'John YJ',
+      roleName: '超级管理员',
+      avatar: '/static/images/john.jpg'
+    },
     fav: true,
+    editAvatarShow: false,
     menu: false,
     message: true,
     hints: false
@@ -111,6 +130,9 @@ export default {
   methods: {
     drawer () {
       this.$store.commit('SET_CONTROLSOPTION', {drawer: !this.controlsOption.drawer})
+    },
+    saveUserAvatar (el) {
+      this.accoutMes.avatar = 'static/images/avatar/' + el + '.png'
     },
     setLove () {
       this.fav = !this.fav

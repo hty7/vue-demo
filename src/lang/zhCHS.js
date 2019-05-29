@@ -3,7 +3,7 @@ module.exports = {
     cancel: '取消',
     determine: '确定',
     login: '登陆',
-    signOut: '退出登陆',
+    signOut: '注销',
     registered: '注册',
     search: '查询',
     submit: '提交',
@@ -52,16 +52,24 @@ module.exports = {
       ]
     },
     {path: 'threeJS', router: true, title: '3D模型', icon: 'wifi_tethering', color: 'green'},
-    {path: 'resource', router: true, title: '资源管理', icon: 'subscriptions', color: 'green'},
+    {
+      title: '资源管理',
+      icon: 'folder',
+      color: 'indigo',
+      items: [
+        {path: 'resource', router: true, title: '图片流', icon: 'subscriptions', color: 'green'},
+        {path: 'storage', router: true, title: 'indexedDB', icon: 'storage', color: 'green'}
+      ]
+    },
     {
       title: '设置',
       icon: 'settings',
       color: 'purple',
       items: [
         {path: 'setting', router: true, title: '用户管理', icon: 'folder_shared', color: 'purple'},
-        {path: 'setting1', router: true, title: '角色管理', icon: 'supervised_user_circle', color: 'purple'},
-        {path: 'setting2', router: true, title: '权限管理', icon: 'security', color: 'purple'},
-        {path: 'setting3', router: true, title: '设置', icon: 'settings', color: 'purple'}
+        {path: 'setting', router: true, title: '角色管理', icon: 'supervised_user_circle', color: 'purple'},
+        {path: 'setting', router: true, title: '权限管理', icon: 'security', color: 'purple'},
+        {path: 'setting', router: true, title: '设置', icon: 'settings', color: 'purple'}
       ]
     }
   ]

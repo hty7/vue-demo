@@ -55,14 +55,14 @@
             </v-list-tile-content>
             <edit-avatar :dialogShow="editAvatarShow" @saveUserAvatar="saveUserAvatar" @close="editAvatarShow=false"></edit-avatar>
           </v-list-tile>
-          <v-list-tile>
+          <!-- <v-list-tile>
             <v-list-tile-action>
               <v-switch v-model="hints" color="purple"></v-switch>
             </v-list-tile-action>
             <v-list-tile-title>
               主题 ({ {hints?'白色' : '黑说' }})
             </v-list-tile-title>
-          </v-list-tile>
+          </v-list-tile> -->
           <!-- <v-list-tile>
             语言：
             <v-btn-toggle v-model="icon">

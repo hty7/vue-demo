@@ -290,9 +290,6 @@ export default {
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 1px 4px 1px rgba(39, 39, 39, 0.2);
-    // .card-img-absolute {
-    //   height: 110%;
-    // }
   }
   .card-img-absolute {
     position: absolute;

@@ -45,13 +45,13 @@ import {mapGetters} from 'vuex'
 export default {
   data: () => ({
     routers: [
-      {path: 'main', router: true, title: '首页', icon: 'home', color: 'blue'},
+      {path: 'home', router: true, title: '首页', icon: 'home', color: 'blue'},
       {
         title: '公告',
         icon: 'record_voice_over',
         color: 'orange',
         items: [
-          {path: 'announcement', router: true, title: '新建公告', icon: 'chat_bubble', color: 'blue'},
+          {path: 'announcement', router: true, title: '公告', icon: 'chat_bubble', color: 'blue'},
           {path: 'location', router: true, title: '列表', icon: 'clear_all', color: 'blue'}
         ]
       },

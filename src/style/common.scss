@@ -1,82 +1,3 @@
-body,
-html {
-    height: 100%;
-    width: 100%;
-    background-color: #F5F5F5;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-    overflow: auto!important;
-    font-weight: 400;
-    font-size: 62.5%;
-    -webkit-font-smoothing: antialiased;
-}
-
-hr {
-    height: 1px;
-    border: none;
-    border-top: 1px solid rgba(155, 155, 155, 0.5);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    margin: 0;
-    padding: 0;
-}
-
-li,
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-body {
-    font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
-    overflow: auto;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-}
-
-a {
-    color: rgba(0, 0, 0, 0.1);
-    font-size: 14px;
-    text-decoration: none;
-    &:hover {
-        text-decoration: none;
-    }
-}
-
-img {
-    max-width: 100%;
-}
-
-button,
-input,
-select,
-textarea {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    color: inherit;
-}
-
-input[type="button"], input[type="submit"], input[type="search"], input[type="reset"] {
-    -webkit-appearance: none;
-}
-
-textarea { -webkit-appearance: none;}
-
-* {
-    box-sizing: border-box;
-}
-
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
 ::-webkit-scrollbar  
 {  
@@ -88,7 +9,7 @@ textarea { -webkit-appearance: none;}
 /*定义滚动条轨道 内阴影+圆角*/  
 ::-webkit-scrollbar-track  
 {  
-    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0);  
+    box-shadow: inset 0 0 1px rgba(0,0,0,0);  
     border-radius: 10px;  
     background-color: #F5F5F5;  
 }  
@@ -97,7 +18,7 @@ textarea { -webkit-appearance: none;}
 ::-webkit-scrollbar-thumb  
 {  
     border-radius: 10px;  
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
     background-color: #555;  
 }
 
@@ -111,59 +32,6 @@ textarea { -webkit-appearance: none;}
     zoom:1;
 }
 
-.back_img{
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-.margin{
-    margin: 0 auto;
-}
-
-.left{
-    float: left;
-}
-
-.right{
-    float: right;
-}
-
-.hide{
-    display: none;
-}
-
-.show{
-    display: block;
-}
-
-.ellipsis{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-@keyframes backOpacity{
-   0%   { opacity: 1 }
-   25%  { opacity: .5 }
-   50%  { opacity: 1 }
-   75%  { opacity: .5 }
-   100% { opacity: 1 }
-}
-
-.animation_opactiy{
-    animation: backOpacity 2s ease-in-out infinite;
-}
-
-.validate-danger {
-    border-bottom: 1px solid #fde5e5 !important;
-    .is-danger {
-        color: red;
-    }
-}
-.msg_p {
-    margin-bottom: 0;
-}
-
-.customize-dialog {
-    overflow-y: inherit !important;
+.section-content {
+    margin: 52px 24px 0;
 }

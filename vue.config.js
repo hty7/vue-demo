@@ -1,6 +1,7 @@
 module.exports = {
   // 设置打包输出文件夹名称
   outputDir: 'webApp',
+  // 是否开启sourcemap
   // webpack其他选项
   configureWebpack: {
     resolve: {

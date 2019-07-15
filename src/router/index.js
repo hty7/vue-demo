@@ -8,6 +8,7 @@ const Login = () => require.ensure([], () => (require('@/views/login/login')), '
 const Main = () => require.ensure([], () => (require('@/views/main/')), 'Main')
 const Home = () => require.ensure([], () => (require('@/views/home/')), 'Home')
 const NotFound = () => require.ensure([], () => (require('@/views/login/login')), 'Login')
+const Announcement = () => require.ensure([], () => (require('@/views/announcement')), 'Announcement')
 
 const router = new Router({
   routes: [
@@ -24,6 +25,10 @@ const router = new Router({
         {
           path: '/home',
           component: Home
+        },
+        {
+          path: '/announcement',
+          component: Announcement
         }
       ]
     },

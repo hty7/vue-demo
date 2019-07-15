@@ -119,6 +119,7 @@ export default {
   &-footer {
     height: 10%;
     width: 100%;
+    color: rgb(131, 131, 131);
     background-color: #ffffff;
     position: fixed;
     bottom: 0;

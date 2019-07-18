@@ -1,5 +1,5 @@
 <template>
-  <baidu-map mapWidth="100%" mapHeight="calc(100vh - 100px)" @ready="initReady"></baidu-map>
+  <baidu-map mapWidth="100%" mapHeight="100vh" @ready="initReady"></baidu-map>
 </template>
 
 <script>

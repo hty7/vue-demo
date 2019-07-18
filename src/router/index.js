@@ -9,6 +9,11 @@ const Main = () => require.ensure([], () => (require('@/views/main/')), 'Main')
 const Home = () => require.ensure([], () => (require('@/views/home/')), 'Home')
 const NotFound = () => require.ensure([], () => (require('@/views/login/login')), 'Login')
 const Announcement = () => require.ensure([], () => (require('@/views/announcement')), 'Announcement')
+const TrafficAnalysis = () => require.ensure([], () => (require('@/views/dataAnalysis/trafficAnalysis/')), 'TrafficAnalysis')
+const BaiduMap = () => require.ensure([], () => (require('@/views/dataAnalysis/flowAnalysis/baiduMap')), 'BaiduMap')
+const Mapbox = () => require.ensure([], () => (require('@/views/dataAnalysis/flowAnalysis/mapbox')), 'Mapbox')
+const Mapbox2 = () => require.ensure([], () => (require('@/views/dataAnalysis/flowAnalysis/mapbox2')), 'Mapbox')
+const ArcGIS = () => require.ensure([], () => (require('@/views/dataAnalysis/flowAnalysis/arcGIS')), 'ArcGIS')
 
 const router = new Router({
   routes: [
@@ -29,6 +34,26 @@ const router = new Router({
         {
           path: '/announcement',
           component: Announcement
+        },
+        {
+          path: '/trafficAnalysis',
+          component: TrafficAnalysis
+        },
+        {
+          path: '/baiduMap',
+          component: BaiduMap
+        },
+        {
+          path: '/mapbox',
+          component: Mapbox
+        },
+        {
+          path: '/mapbox2',
+          component: Mapbox2
+        },
+        {
+          path: '/arcGIS',
+          component: ArcGIS
         }
       ]
     },

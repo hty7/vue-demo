@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'mapbox-layer',
+  name: 'MapboxLayer',
   render () {
     return ''
   },
@@ -17,11 +17,9 @@ export default {
     }
   },
   watch: {
-    mapboxMap (newData, oldData) {
+    mapboxMap (newData) {
       if (!newData) return ''
       this.reload()
-    },
-    layerData (newData, oldData) {
     }
   },
   methods: {

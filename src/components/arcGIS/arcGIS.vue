@@ -1,5 +1,5 @@
 <template>
-  <div id="chartMap" ref="chartMap" style="width: 100%;height: 600px;"></div>
+  <div id="chartMap" ref="chartMap" style="width: 100%;height: 100vh;"></div>
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default {
     this.createMap()
   },
   methods: {
-    createMap (init) {
+    createMap () {
       this.loading = false
       esriLoader.loadModules([
         'esri/Map',
@@ -24,7 +24,7 @@ export default {
           basemap: 'hybrid',
           ground: 'world-elevation'
         })
-        let view = new SceneView({
+        new SceneView({
           map: map,
           container: 'chartMap',
           camera: {
@@ -32,9 +32,8 @@ export default {
             tilt: 80
           }
         })
-        console.log(view)
       }).catch(err => {
-        console.log('err', err)
+        alert('err', err)
       })
     }
   }

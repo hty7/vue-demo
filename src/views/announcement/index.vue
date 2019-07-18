@@ -1,29 +1,37 @@
 <template>
-  <div class="section-content">
-    <v-layout>
-      <v-flex xs12 md4 lg4 class="fixed-box">
-        <announcement-list></announcement-list>
-      </v-flex>
-      <v-flex xs12 md8 lg8 class="fixed-box">
-        <announcement-content></announcement-content>
+  <div>
+    <v-layout row wrap>
+      <v-flex xs12 md12 lg12>
+        <announcement-header @showTab="showTab"></announcement-header>
       </v-flex>
     </v-layout>
+    <div class="section-content">
+      <keep-alive>
+        <component :is="currentTabComponent"></component>
+      </keep-alive>
+    </div>
   </div>
 </template>
 
 <script>
-import AnnouncementContent from './children/announcementContent'
-import AnnouncementList from './children/announcementList'
+import AnnouncementHeader from './children/announcementHeader'
+import Main from './main'
+import Edit from './edit'
+import DraftBox from './draft-box'
 export default {
   components: {
-    AnnouncementContent, AnnouncementList
-  }
+    AnnouncementHeader, Main, Edit, DraftBox
+  },
+  data: () => ({
+    currentTabComponent: 'Main'
+  }),
+  methods: {
+    showTab (el) {
+      this.currentTabComponent = el
+    }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-.fixed-box {
-  height: calc(100vh - 52px);
-  overflow-y: auto;
-}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <mapbox-map mapWidth="100%" mapHeight="calc(100vh - 100px)" @ready="initReady">
+  <mapbox-map mapWidth="100%" mapHeight="100vh" @ready="initReady">
     <echart-bar3d :barData="barData"></echart-bar3d>
     <mapbox-layer layerData="guangdong.json" :mapboxMap="mapboxMap"></mapbox-layer>
     <mapbox-control></mapbox-control>
@@ -8,8 +8,8 @@
 
 <script>
 import gdData from '@/utils/guangdong.json'
-import MapboxMap from '@/components/mapbox/mapbox'
-import EchartBar3d from '@/components/mapbox/children/echartBar3d'
+import MapboxMap from '@/components/mapbox/MapBox'
+import EchartBar3d from '@/components/mapbox/children/EchartBar3d'
 import MapboxControl from '@/components/mapbox/tools/MapboxControl'
 import MapboxLayer from '@/components/mapbox/overlays/MapboxLayer'
 export default {
@@ -49,7 +49,7 @@ export default {
     }
   },
   methods: {
-    initReady ({mapboxgl, mapboxMap}) {
+    initReady ({mapboxMap}) {
       this.mapboxMap = mapboxMap
     }
   }

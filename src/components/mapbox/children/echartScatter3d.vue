@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'echart-scatter3d',
+  name: 'EchartScatter3d',
   render () {
     return ''
   },
@@ -39,12 +39,13 @@ export default {
   }),
   props: {
     barData: {
-      type: Array
+      type: Array,
+      default: null
     }
   },
   watch: {
     barData: {
-      handler (val, oldVal) {
+      handler () {
         this.reload()
       },
       deep: true
@@ -64,7 +65,7 @@ export default {
       })
     },
     setBarData (data) {
-      return data.map((item, index) => {
+      return data.map((item) => {
         return {name: item.name, value: item.value.concat(100 * Math.random())}
       })
     }

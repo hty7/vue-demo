@@ -11,19 +11,24 @@ export default {
       default: 'imCMLRYgkIlk1ul0lGMDGkoj5Yw8eIk0'
     },
     mapWidth: {
-      type: String
+      type: String,
+      default: '100%'
     },
     mapHeight: {
-      type: String
+      type: String,
+      default: '100%'
     },
     center: {
-      type: Array
+      type: Array,
+      default: null
     },
     zoom: {
-      type: Number
+      type: Number,
+      default: 18
     },
     navigationOffset: {
-      type: String
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -44,7 +49,7 @@ export default {
       if (!global.BMap) {
         const ak = this.ak || this._BMap().ak
         global.BMap = {}
-        global.BMap._preloader = new Promise((resolve, reject) => {
+        global.BMap._preloader = new Promise((resolve) => {
           global._initBaiduMap = function () {
             resolve(global.BMap)
             global.document.body.removeChild($script)

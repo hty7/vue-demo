@@ -1,7 +1,7 @@
 <script>
 import {mapGetters} from 'vuex'
 export default {
-  name: 'mapbox-control',
+  name: 'MapboxControl',
   render () {
     return ''
   },
@@ -12,7 +12,7 @@ export default {
     ...mapGetters(['mapboxMap'])
   },
   watch: {
-    mapboxMap (newVal, oldVal) {
+    mapboxMap (newVal) {
       if (newVal) this.reload()
     }
   },

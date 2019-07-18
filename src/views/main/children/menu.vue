@@ -51,8 +51,7 @@ export default {
         icon: 'record_voice_over',
         color: 'orange',
         items: [
-          {path: 'announcement', router: true, title: '公告', icon: 'chat_bubble', color: 'blue'},
-          {path: 'location', router: true, title: '列表', icon: 'clear_all', color: 'blue'}
+          {path: 'announcement', router: true, title: '公告', icon: 'chat_bubble', color: 'blue'}
         ]
       },
       {

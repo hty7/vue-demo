@@ -1,7 +1,7 @@
 <template>
   <div style="height:100%;width:100%;text-align:left;">
     <div ref="basicMapbox" :style="mapSize">
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>
@@ -13,10 +13,12 @@ import 'echarts-gl'
 export default {
   props: {
     mapWidth: {
-      type: String
+      type: String,
+      default: '300px'
     },
     mapHeight: {
-      type: String
+      type: String,
+      default: '300px'
     }
   },
   data () {
@@ -51,6 +53,7 @@ export default {
           bearing: 0,
           style: 'mapbox://styles/mapbox/satellite-v9',
           boxHeight: 20,
+          trackResize: true,
           light: {
             main: {
               intensity: 1,

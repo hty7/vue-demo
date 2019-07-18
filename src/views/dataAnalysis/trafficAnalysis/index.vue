@@ -1,13 +1,21 @@
 <template>
-  <v-layout>
-    <v-flex xs6 sm6>
-      <div ref="chart1" style="width: 100%;height: 600px;"></div>
-    </v-flex>
-    <v-flex xs6 sm6>
-      <div ref="chart2" style="width: 100%;height: 300px;"></div>
-      <div ref="chart3" style="width: 100%;height: 300px;"></div>
-    </v-flex>
-  </v-layout>
+  <v-container fluid grid-list-md class="traffic-analysis">
+    <v-layout row wrap>
+      <v-flex xs12 sm6 md6 lg4>
+        <div ref="chart1" class="content-box" style="width: 100%;height: 608px;"></div>
+      </v-flex>
+      <v-flex xs12 sm6 md6 lg8>
+        <v-layout row wrap>
+          <v-flex xs12>
+            <div ref="chart2" class="content-box" style="width: 100%;height: 300px;"></div>
+          </v-flex>
+          <v-flex xs12>
+            <div ref="chart3" class="content-box" style="width: 100%;height: 300px;"></div>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
@@ -18,7 +26,22 @@ export default {
   data: () => ({
     chart1: null,
     chart2: null,
-    debounceTdentify: 0
+    debounceTdentify: 0,
+    yAxisConf: {
+      type: 'value',
+      axisLabel: {
+        formatter: '{value}',
+        margin: 20,
+        color: 'rgba(0, 0, 0, 0.6)'
+      },
+      axisLine: { show: false },
+      splitLine: {
+        show: true,
+        lineStyle: {
+          color: 'rgba(0, 0, 0, 0.1)'
+        }
+      }
+    },
   }),
   computed: {
   },
@@ -35,18 +58,44 @@ export default {
     next()
   },
   methods: {
+    setXAxisConf (el) {
+      return {
+        type: 'category',
+        boundaryGap: false,
+        data: el,
+        axisLabel: {
+          margin: 20,
+          color: 'rgba(0, 0, 0, 0.6)'
+        },
+        axisTick: {
+          show: true,
+          length: 12,
+          lineStyle: {
+            color: 'rgba(0, 0, 0, 0.1)'
+          }
+        },
+        axisLine: {
+          lineStyle: {
+            color: 'rgba(0, 0, 0, 0.1)'
+          }
+        }
+      }
+    },
     drawChart1 () {
       this.chart1 = echarts.init(this.$refs.chart1, 'vintage')
-      var xAxisData = []
-      var data1 = []
-      var data2 = []
-      for (var i = 0; i < 100; i++) {
+      let xAxisData = []
+      let data1 = []
+      let data2 = []
+      for (let i = 0; i < 100; i++) {
         xAxisData.push('类目' + i)
         data1.push((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5)
         data2.push((Math.cos(i / 5) * (i / 5 - 10) + i / 6) * 5)
       }
       this.chart1.setOption({
         legend: {
+          textStyle: {
+            color: 'rgba(0, 0, 0, 0.6)'
+          },
           data: ['bar', 'bar2']
         },
         toolbox: {
@@ -59,18 +108,15 @@ export default {
             }
           }
         },
-        xAxis: {
-          data: xAxisData,
-          silent: false,
-          splitLine: {
-            show: false
-          }
-        },
-        yAxis: {},
+        xAxis: this.setXAxisConf(xAxisData),
+        yAxis: this.yAxisConf,
         series: [{
           name: 'bar',
           type: 'bar',
           data: data1,
+          itemStyle: {
+            color: '#047edf'
+          },
           animationDelay: function (idx) {
             return idx * 10
           }
@@ -95,6 +141,9 @@ export default {
           trigger: 'axis'
         },
         legend: {
+          textStyle: {
+            color: 'rgba(0, 0, 0, 0.6)'
+          },
           data: ['最高气温', '最低气温']
         },
         toolbox: {
@@ -109,17 +158,8 @@ export default {
             saveAsImage: {}
           }
         },
-        xAxis: {
-          type: 'category',
-          boundaryGap: false,
-          data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-        },
-        yAxis: {
-          type: 'value',
-          axisLabel: {
-            formatter: '{value} °C'
-          }
-        },
+        xAxis: this.setXAxisConf(['周一', '周二', '周三', '周四', '周五', '周六', '周日']),
+        yAxis: this.yAxisConf,
         series: [{
           name: '最高气温',
           type: 'line',
@@ -176,17 +216,8 @@ export default {
             type: 'shadow'
           }
         },
-        xAxis: {
-          type: 'value',
-          silent: false,
-          splitLine: {
-            show: false
-          }
-        },
-        yAxis: {
-          type: 'category',
-          data: ['top1', 'top2', 'top3', 'top4', 'top5']
-        },
+        xAxis: this.yAxisConf,
+        yAxis: this.setXAxisConf(['top1', 'top2', 'top3', 'top4', 'top5']),
         series: [{
           name: 'testsonf',
           type: 'bar',
@@ -205,7 +236,7 @@ export default {
       }
       this.chart3.setOption(option3)
     },
-    resizeFu (el) {
+    resizeFu () {
       // 重绘，防抖500ms延迟
       this.debounceTdentify && clearTimeout(this.debounceTdentify)
       this.debounceTdentify = setTimeout(() => {
@@ -219,4 +250,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.traffic-analysis {
+  min-height: 100vh;
+  padding-top: 88px;
+  background: linear-gradient(148deg, #4c2bb6 0, #439fd1 50%, #66b0fa 100%);
+}
+.content-box {
+  background: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 3px 15px 1px rgba(39, 39, 39, 0.42);
+}
 </style>

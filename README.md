@@ -18,6 +18,9 @@
 
 >   或者您可以 "follow" 一下，我会不断开源更多的有趣的项目
 
+>   该分支为vue-cli2版本搭建，部分同学反应无法初始化，由于无更多时间进行维护，现添加vue-cli3的分支https://github.com/hty7/vue-demo/tree/v2.x
+
+
 ## 部分页面效果图
 
 <p align="center"><img align="center" src="https://github.com/hty7/vue-demo/blob/master/screenshots/home.png"/></p>

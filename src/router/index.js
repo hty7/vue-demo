@@ -31,10 +31,24 @@ const router = new Router({
           path: '/home',
           component: Home
         },
+      ]
+    },
+    {
+      path: '/announcement',
+      component: Main,
+      redirect: 'noredirect',
+      children: [
         {
           path: '/announcement',
           component: Announcement
         },
+      ]
+    },
+    {
+      path: '/trafficAnalysis',
+      component: Main,
+      redirect: '/trafficAnalysis',
+      children: [
         {
           path: '/trafficAnalysis',
           component: TrafficAnalysis
